@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(php
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -38,11 +38,10 @@ This function should only modify configuration layer settings."
      html
      javascript
      helm
-     php
-     ;; auto-completion
+     auto-completion
      better-defaults
-     ;; emacs-lisp
-     ;; git
+     emacs-lisp
+     git
      ;; markdown
      ;; neotree
      org
@@ -51,7 +50,8 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
+     wuzehui
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -348,6 +348,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq configuration-layer-elpa-archives
+        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "http://elpa.emacs-china.org/org/")
+                  ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
   )
 
 (defun dotspacemacs/user-config ()
