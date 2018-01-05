@@ -35,8 +35,8 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     html
-     javascript
+     ;; html
+     ;; javascript
      helm
      auto-completion
      better-defaults
@@ -52,6 +52,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      wuzehui
+     c-c++
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -61,7 +62,10 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    phpunit
+                                    phpcbf
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and deletes any unused
@@ -369,6 +373,7 @@ before packages are loaded."
 
   ;; config for org
   (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+  (setq projectile-enable-caching t)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
