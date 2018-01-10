@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      version-control
      wuzehui
      c-c++
+     gtags
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -374,6 +375,11 @@ before packages are loaded."
   ;; config for org
   (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
   (setq projectile-enable-caching t)
+
+  (evil-leader/set-key
+    "go" 'spacemacs/jump-to-definition
+    "gr" 'evil-jump-backward
+    )
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
