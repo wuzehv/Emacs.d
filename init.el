@@ -35,13 +35,13 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; html
-     ;; javascript
+     html
      helm
      auto-completion
      better-defaults
-     emacs-lisp
-     git
+     javascript
+     ;; emacs-lisp
+     ;; git
      ;; markdown
      ;; neotree
      org
@@ -51,8 +51,8 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      syntax-checking
      version-control
-     wuzehui
-     c-c++
+     ;; wuzehui
+     ;; c-c++
      gtags
      )
    ;; List of additional packages that will be installed without being
@@ -61,11 +61,30 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   dotspacemacs-frozen-packages '(
+                                  git-gutter+
+                                  git-gutter-fringe+
+                                  )
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    phpunit
-                                    phpcbf
+                                    tern company-tern phpunit phpcbf conpany-php php-extras drupal-mode js-doc
+                                    js2-refactor json-mode json-snatcher less-css-mode pug-mode scss-mode sass-mode
+                                    slim-mode web-beautify
+                                    magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
+                                    evil-args evil-ediff evil-exchange evil-unimpaired
+                                    evil-indent-plus volatile-highlights smartparens
+                                    holy-mode skewer-mode rainbow-delimiters
+                                    highlight-indentation vi-tilde-fringe eyebrowse
+                                    org-bullets smooth-scrolling org-repo-todo org-download org-timer
+                                    livid-mode git-gutter git-gutter-fringe  evil-escape
+                                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+                                    ac-ispell ace-jump-mode auto-complete auto-dictionary
+                                    clang-format define-word google-translate disaster epic
+                                    fancy-battery org-present orgit orglue spacemacs-theme
+                                    helm-flyspell flyspell-correct-helm clean-aindent-mode
+                                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
+                                    helm-themes helm-swoop helm-spacemacs-help smeargle
+                                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -377,9 +396,14 @@ before packages are loaded."
   (setq projectile-enable-caching t)
 
   (evil-leader/set-key
-    "go" 'spacemacs/jump-to-definition
-    "gr" 'evil-jump-backward
+    "gd" 'spacemacs/jump-to-definition
+    "go" 'evil-jump-backward
+    "gr" 'helm-gtags-find-rtag
     )
+
+  (setq yas-snippet-dirs
+        '("~/.spacemacs.d/snippets"))
+  (display-time-mode)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
