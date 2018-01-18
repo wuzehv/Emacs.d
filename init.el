@@ -411,6 +411,9 @@ before packages are loaded."
 
   (spacemacs/enable-smooth-scrolling)
 
+  (setq org-todo-keywords
+              '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
+
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
     "go" 'evil-jump-backward
