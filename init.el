@@ -59,7 +59,9 @@ This function should only modify configuration layer settings."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      window-numbering
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
                                   git-gutter+
@@ -73,7 +75,7 @@ This function should only modify configuration layer settings."
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
                                     evil-indent-plus volatile-highlights smartparens
-                                    holy-mode skewer-mode rainbow-delimiters
+                                    holy-mode skewer-mode rainbow-delimiters spaceline
                                     highlight-indentation vi-tilde-fringe eyebrowse
                                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
                                     livid-mode git-gutter git-gutter-fringe  evil-escape
@@ -225,7 +227,7 @@ It should only modify the values of Spacemacs settings."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location nil
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
    ;; If non-nil, `helm' will try to minimize the space it uses. (default nil)
@@ -391,19 +393,30 @@ before packages are loaded."
   (with-eval-after-load 'dired
         (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-  ;; config for org
-  (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
   (setq projectile-enable-caching t)
+
+  (setq yas-snippet-dirs
+        '("~/.spacemacs.d/snippets"))
+
+  (display-time-mode)
+
+  (require 'window-numbering)
+  (window-numbering-mode 1)
+
+  ;; insert-datetime
+  (defun insert-datetime ()
+    "Insert date at point."
+    (interactive)
+        (insert (format-time-string " %Y-%m-%d %H:%M:%S")))
+
+  (spacemacs/enable-smooth-scrolling)
 
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
     "go" 'evil-jump-backward
     "gr" 'helm-gtags-find-rtag
+    "gt" 'insert-datetime
     )
-
-  (setq yas-snippet-dirs
-        '("~/.spacemacs.d/snippets"))
-  (display-time-mode)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
