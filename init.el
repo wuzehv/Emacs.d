@@ -29,7 +29,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(php
+   '(python
+     php
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -49,7 +50,7 @@ This function should only modify configuration layer settings."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     syntax-checking
+     ;; syntax-checking
      version-control
      ;; wuzehui
      ;; c-c++
@@ -59,9 +60,7 @@ This function should only modify configuration layer settings."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-                                      window-numbering
-                                      )
+   dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
                                   git-gutter+
@@ -75,7 +74,7 @@ This function should only modify configuration layer settings."
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
                                     evil-indent-plus volatile-highlights smartparens
-                                    holy-mode skewer-mode rainbow-delimiters spaceline
+                                    holy-mode skewer-mode rainbow-delimiters
                                     highlight-indentation vi-tilde-fringe eyebrowse
                                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
                                     livid-mode git-gutter git-gutter-fringe  evil-escape
@@ -87,6 +86,7 @@ This function should only modify configuration layer settings."
                                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                                     helm-themes helm-swoop helm-spacemacs-help smeargle
                                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+                                    neotree
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -137,7 +137,7 @@ It should only modify the values of Spacemacs settings."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non-nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -306,7 +306,13 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(t
+                               :disabled-for-modes dired-mode
+                                                   doc-view-mode
+                                                   markdown-mode
+                                                   org-mode
+                                                   pdf-view-mode
+                                                   text-mode)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -400,9 +406,6 @@ before packages are loaded."
 
   (display-time-mode)
 
-  (require 'window-numbering)
-  (window-numbering-mode 1)
-
   ;; insert-datetime
   (defun insert-datetime ()
     "Insert date at point."
@@ -415,6 +418,8 @@ before packages are loaded."
               '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
 
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+  (setq-default linum-format "%4d ")
 
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
