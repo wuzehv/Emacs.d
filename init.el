@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      helm
      auto-completion
      better-defaults
-     javascript
+     ;; javascript
      ;; emacs-lisp
      ;; git
      ;; markdown
@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     version-control
+     ;; version-control
      ;; wuzehui
      ;; c-c++
      gtags
@@ -73,7 +73,7 @@ This function should only modify configuration layer settings."
                                     slim-mode web-beautify
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
-                                    evil-indent-plus volatile-highlights smartparens
+                                    evil-indent-plus volatile-highlights spaceline font-lock+
                                     holy-mode skewer-mode rainbow-delimiters
                                     highlight-indentation vi-tilde-fringe eyebrowse
                                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
@@ -172,8 +172,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               :width normal)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -249,7 +248,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.8
+   dotspacemacs-which-key-delay 0.4
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -292,7 +291,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; Control line numbers activation.
    ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
    ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
@@ -372,6 +371,7 @@ It should only modify the values of Spacemacs settings."
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
    dotspacemacs-pretty-docs nil
+   dotspacemacs-mode-line-theme 'vanilla
    ))
 
 (defun dotspacemacs/user-init ()
@@ -404,15 +404,13 @@ before packages are loaded."
   (setq yas-snippet-dirs
         '("~/.spacemacs.d/snippets"))
 
-  (display-time-mode)
+  ;; (display-time-mode)
 
   ;; insert-datetime
   (defun insert-datetime ()
     "Insert date at point."
     (interactive)
         (insert (format-time-string " %Y-%m-%d %H:%M:%S")))
-
-  (spacemacs/enable-smooth-scrolling)
 
   (setq org-todo-keywords
               '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
@@ -421,11 +419,25 @@ before packages are loaded."
 
   (setq-default linum-format "%4d ")
 
+  (defun nginx_control()
+    "nginx相关操作"
+    (interactive)
+    (let ((what_do (read-from-minibuffer "INPUT [start stop quit repoen reload]: ")))
+      (if (string= what_do "start")
+          (shell-command "/usr/local/nginx/sbin/nginx")
+          (shell-command (format "/usr/local/nginx/sbin/nginx -s %s" what_do)))))
+
+  (setq auto-mode-alist
+        (append
+         '(("\\.js\\'" . web-mode))
+                auto-mode-alist))
+
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
     "go" 'evil-jump-backward
     "gr" 'helm-gtags-find-rtag
     "gt" 'insert-datetime
+    "gs" 'nginx_control
     )
   )
 
