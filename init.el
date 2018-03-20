@@ -38,7 +38,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      html
      helm
-     auto-completion
+     (auto-completion :enabled-for php)
      better-defaults
      ;; javascript
      ;; emacs-lisp
@@ -68,9 +68,12 @@ This function should only modify configuration layer settings."
                                   )
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    tern company-tern phpunit phpcbf conpany-php php-extras drupal-mode js-doc
+                                    tern company-tern phpunit phpcbf php-extras drupal-mode js-doc
                                     js2-refactor json-mode json-snatcher less-css-mode pug-mode scss-mode sass-mode
-                                    slim-mode web-beautify
+                                    slim-mode web-beautify php-eldoc smartparens company-web
+                                    flymake-php ivy-phpunit ac-php-core ede-php-autoload ede-php-autoload-drupal
+                                    ede-php-autoload-composer-installers ac-php emmet-mode
+                                    lsp-php php-runtime php-cs-fixer php-refactor-mode php-boris-minor-mode php-boris
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
                                     evil-indent-plus volatile-highlights spaceline font-lock+
@@ -321,7 +324,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -381,9 +384,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-                  ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -431,6 +434,9 @@ before packages are loaded."
         (append
          '(("\\.js\\'" . web-mode))
                 auto-mode-alist))
+
+  (add-hook 'php-mode-hook 'hungry-delete-mode)
+  (add-hook 'web-mode-hook 'hungry-delete-mode)
 
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
