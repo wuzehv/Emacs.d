@@ -38,7 +38,6 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      html
      helm
-     (auto-completion :enabled-for php)
      better-defaults
      ;; javascript
      ;; emacs-lisp
@@ -70,7 +69,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-excluded-packages '(
                                     tern company-tern phpunit phpcbf php-extras drupal-mode js-doc
                                     js2-refactor json-mode json-snatcher less-css-mode pug-mode scss-mode sass-mode
-                                    slim-mode web-beautify php-eldoc smartparens company-web
+                                    slim-mode web-beautify php-eldoc smartparens company-web company
                                     flymake-php ivy-phpunit ac-php-core ede-php-autoload ede-php-autoload-drupal
                                     ede-php-autoload-composer-installers ac-php emmet-mode
                                     lsp-php php-runtime php-cs-fixer php-refactor-mode php-boris-minor-mode php-boris
@@ -165,7 +164,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(monokai
+                         spacemacs-dark
                          spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -415,6 +415,11 @@ before packages are loaded."
     (interactive)
         (insert (format-time-string " %Y-%m-%d %H:%M:%S")))
 
+  (defun insert-date ()
+    "Insert date at point."
+    (interactive)
+    (insert (format-time-string " %Y-%m-%d")))
+
   (setq org-todo-keywords
               '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
 
@@ -438,11 +443,17 @@ before packages are loaded."
   (add-hook 'php-mode-hook 'hungry-delete-mode)
   (add-hook 'web-mode-hook 'hungry-delete-mode)
 
+  (add-to-list 'load-path "~/.spacemacs.d/packages")
+  (require 'highlight-indent-guides)
+  (add-hook 'php-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'character)
+
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
     "go" 'evil-jump-backward
     "gr" 'helm-gtags-find-rtag
     "gt" 'insert-datetime
+    "gi" 'insert-date
     "gs" 'nginx_control
     )
   )
