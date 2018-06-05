@@ -404,8 +404,6 @@ before packages are loaded."
   (setq yas-snippet-dirs
         '("~/.spacemacs.d/snippets"))
 
-  ;; (display-time-mode)
-
   ;; insert-datetime
   (defun insert-datetime ()
     "Insert date at point."
@@ -423,14 +421,6 @@ before packages are loaded."
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
   (setq-default linum-format "%4d ")
-
-  (defun nginx_control()
-    "nginx相关操作"
-    (interactive)
-    (let ((what_do (read-from-minibuffer "INPUT [start stop quit repoen reload]: ")))
-      (if (string= what_do "start")
-          (shell-command "/usr/local/nginx/sbin/nginx")
-          (shell-command (format "/usr/local/nginx/sbin/nginx -s %s" what_do)))))
 
   (setq auto-mode-alist
         (append
