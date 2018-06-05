@@ -30,6 +30,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(python
+	 ;;python
      php
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -62,9 +63,9 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
-                                  git-gutter+
-                                  git-gutter-fringe+
-                                  )
+								  git-gutter+
+								  git-gutter-fringe+
+								  )
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
                                     tern company-tern phpunit phpcbf php-extras drupal-mode js-doc
@@ -75,8 +76,8 @@ This function should only modify configuration layer settings."
                                     lsp-php php-runtime php-cs-fixer php-refactor-mode php-boris-minor-mode php-boris
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
-                                    evil-indent-plus volatile-highlights spaceline font-lock+
-                                    holy-mode skewer-mode rainbow-delimiters
+                                    evil-indent-plus volatile-highlights font-lock+
+                                    holy-mode skewer-mode rainbow-delimiters spaceline
                                     highlight-indentation vi-tilde-fringe eyebrowse
                                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
                                     livid-mode git-gutter git-gutter-fringe  evil-escape
@@ -88,7 +89,8 @@ This function should only modify configuration layer settings."
                                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                                     helm-themes helm-swoop helm-spacemacs-help smeargle
                                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                                    neotree
+                                    neotree syntax-ppss highlight-parentheses pyvenv importmagic
+									anaconda-mode
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -160,13 +162,14 @@ It should only modify the values of Spacemacs settings."
    ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'lisp-interaction-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
-                         spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(
+						 monokai
+						 spacemacs-light
+                         )
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -308,13 +311,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers '(t
-                               :disabled-for-modes dired-mode
-                                                   doc-view-mode
-                                                   markdown-mode
-                                                   org-mode
-                                                   pdf-view-mode
-                                                   text-mode)
+   dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -384,9 +381,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-                ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+		'(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+		  ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+		        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -440,13 +437,23 @@ before packages are loaded."
          '(("\\.js\\'" . web-mode))
                 auto-mode-alist))
 
-  (add-hook 'php-mode-hook 'hungry-delete-mode)
-  (add-hook 'web-mode-hook 'hungry-delete-mode)
-
   (add-to-list 'load-path "~/.spacemacs.d/packages")
   (require 'highlight-indent-guides)
+
+  (add-hook 'php-mode-hook 'hungry-delete-mode)
   (add-hook 'php-mode-hook 'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-method 'character)
+  (add-hook 'web-mode-hook 'hungry-delete-mode)
+
+
+  (setq-default indent-tabs-mode t)
+  (setq-default tab-width 4)
+
+  (setq history-length 100)
+  (put 'minibuffer-history 'history-length 50)
+  (put 'evil-ex-history 'history-length 50)
+  (put 'kill-ring 'history-length 25)
+
+  (setq helm-ag-use-agignore t)
 
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
