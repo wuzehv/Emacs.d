@@ -439,6 +439,7 @@ before packages are loaded."
 
   (add-to-list 'load-path "~/.spacemacs.d/packages")
   (require 'highlight-indent-guides)
+  (setq highlight-indent-guides-method 'character)
 
   (add-hook 'php-mode-hook 'hungry-delete-mode)
   (add-hook 'php-mode-hook 'highlight-indent-guides-mode)
