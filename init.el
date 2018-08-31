@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(python
+   '(markdown
 	 ;;python
      php
      ;; ----------------------------------------------------------------
@@ -40,9 +40,10 @@ This function should only modify configuration layer settings."
      html
      helm
      better-defaults
+	 ;; auto-completion
      ;; javascript
      ;; emacs-lisp
-     ;; git
+     git
      ;; markdown
      ;; neotree
      org
@@ -62,24 +63,21 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '(
-								  git-gutter+
-								  git-gutter-fringe+
-								  )
+   dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    tern company-tern phpunit phpcbf php-extras drupal-mode js-doc
+                                    phpunit phpcbf php-extras drupal-mode js-doc
                                     js2-refactor json-mode json-snatcher less-css-mode pug-mode scss-mode sass-mode
-                                    slim-mode web-beautify php-eldoc smartparens company-web company
-                                    flymake-php ivy-phpunit ac-php-core ede-php-autoload ede-php-autoload-drupal
-                                    ede-php-autoload-composer-installers ac-php emmet-mode
-                                    lsp-php php-runtime php-cs-fixer php-refactor-mode php-boris-minor-mode php-boris
+                                    slim-mode web-beautify php-eldoc smartparens company-web
+                                    flymake-php ivy-phpunit ede-php-autoload ede-php-autoload-drupal
+                                    ede-php-autoload-composer-installers emmet-mode
+                                    php-runtime php-cs-fixer php-refactor-mode php-boris-minor-mode php-boris
                                     magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                                     evil-args evil-ediff evil-exchange evil-unimpaired
                                     evil-indent-plus volatile-highlights font-lock+
-                                    holy-mode skewer-mode rainbow-delimiters spaceline
+                                    holy-mode skewer-mode rainbow-delimiters
                                     highlight-indentation vi-tilde-fringe eyebrowse
-                                    org-bullets smooth-scrolling org-repo-todo org-download org-timer
+                                    org-repo-todo org-download org-timer
                                     livid-mode git-gutter git-gutter-fringe  evil-escape
                                     leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
                                     ac-ispell ace-jump-mode auto-complete auto-dictionary
@@ -90,7 +88,8 @@ This function should only modify configuration layer settings."
                                     helm-themes helm-swoop helm-spacemacs-help smeargle
                                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                                     neotree syntax-ppss highlight-parentheses pyvenv importmagic
-									anaconda-mode
+									anaconda-mode drupal-mode eldoc flycheck company-php
+									helm-gtags ggtags
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -176,7 +175,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 17
                                :weight normal
                                :width normal)
    ;; The leader key (default "SPC")
@@ -297,7 +296,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling nil
+   dotspacemacs-smooth-scrolling t
    ;; Control line numbers activation.
    ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
    ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
@@ -311,7 +310,13 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:relative nil
+							    :disabled-for-modes dired-mode
+							                        doc-view-mode
+							                        markdown-mode
+							                        org-mode
+							                        pdf-view-mode
+							  )
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -371,7 +376,7 @@ It should only modify the values of Spacemacs settings."
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
    dotspacemacs-pretty-docs nil
-   dotspacemacs-mode-line-theme 'vanilla
+   ;; dotspacemacs-mode-line-theme 'vanilla
    ))
 
 (defun dotspacemacs/user-init ()
@@ -419,24 +424,19 @@ before packages are loaded."
               '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
 
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  (add-hook 'org-mode-hook (lambda () (org-remove-inline-images)))
 
   (setq-default linum-format "%4d ")
 
-  (setq auto-mode-alist
-        (append
-         '(("\\.js\\'" . web-mode))
-                auto-mode-alist))
-
   (add-to-list 'load-path "~/.spacemacs.d/packages")
-  (require 'highlight-indent-guides)
-  (setq highlight-indent-guides-method 'character)
 
   (add-hook 'php-mode-hook 'hungry-delete-mode)
-  (add-hook 'php-mode-hook 'highlight-indent-guides-mode)
   (add-hook 'web-mode-hook 'hungry-delete-mode)
 
+  ;; tab替换space
+  (add-hook 'php-mode-hook (lambda() (setq indent-tabs-mode t)))
+  (add-hook 'web-mode-hook (lambda() (setq indent-tabs-mode t)))
 
-  (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
 
   (setq history-length 100)
@@ -446,6 +446,14 @@ before packages are loaded."
 
   (setq helm-ag-use-agignore t)
 
+  ;; 显示文件决定路径
+  (spaceline-define-segment buffer-id
+	(if (buffer-file-name)
+		(abbreviate-file-name (buffer-file-name))
+      (powerline-buffer-id)))
+
+  (spaceline-toggle-minor-modes-off)
+
   (evil-leader/set-key
     "gd" 'spacemacs/jump-to-definition
     "go" 'evil-jump-backward
@@ -453,6 +461,7 @@ before packages are loaded."
     "gt" 'insert-datetime
     "gi" 'insert-date
     "gs" 'nginx_control
+	"fY" 'spacemacs/copy-file-path
     )
   )
 
