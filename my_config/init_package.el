@@ -23,7 +23,11 @@
 		    org-bullets
 			doom-modeline
 			expand-region
-	    ) "Default packages")
+			yasnippet
+			evil-surround
+			evil-nerd-commenter
+			which-key
+		) "Default packages")
 
 (setq package-selected-packages my/packages)
 
