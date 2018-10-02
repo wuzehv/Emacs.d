@@ -8,7 +8,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(global-hl-line-mode 1)
+(global-hl-line-mode t)
 
 (show-paren-mode t)
 

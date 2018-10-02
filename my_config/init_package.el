@@ -27,6 +27,8 @@
 			evil-surround
 			evil-nerd-commenter
 			which-key
+			popwin
+			web-mode
 		) "Default packages")
 
 (setq package-selected-packages my/packages)

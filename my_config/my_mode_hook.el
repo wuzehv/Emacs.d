@@ -4,7 +4,7 @@
 
 (setq-default tab-width 4)
 
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'linum-mode t)
 
 (add-hook 'php-mode-hook (lambda() (setq indent-tabs-mode t)))
 (add-hook 'web-mode-hook (lambda() (setq indent-tabs-mode t)))
@@ -28,5 +28,12 @@
 (evilnc-default-hotkeys)
 
 (which-key-mode t)
+
+(require 'popwin)
+(popwin-mode 1)
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl.php?\\'" . web-mode))
 
 (provide 'my_mode_hook)
