@@ -6,7 +6,16 @@
 
 (add-hook 'prog-mode-hook 'linum-mode t)
 
-(add-hook 'php-mode-hook (lambda() (setq indent-tabs-mode t)))
+(add-hook 'php-mode-hook
+          '(lambda ()
+			 (setq indent-tabs-mode t)
+             (require 'company-php)
+             (company-mode t)
+             (ac-php-core-eldoc-setup)
+             (make-local-variable 'company-backends)
+			 (add-to-list 'company-backends 'company-ac-php-backend)))
+
+
 (add-hook 'web-mode-hook (lambda() (setq indent-tabs-mode t)))
 
 (require 'expand-region)

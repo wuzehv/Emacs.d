@@ -3,6 +3,9 @@
   "e" 'open-init-file
   "ff" 'helm-find-files
   "fy" 'put-file-name-on-clipboard
+  "fr" 'helm-recentf
+  "fc" 'recentf-cleanup
+  "fs" 'helm-ag-this-file
   "bb" 'helm-buffers-list
   "by" 'copy-all-or-region
   "w/" 'split-window-right
@@ -10,8 +13,8 @@
   "wm" 'delete-other-windows
   "sa" 'helm-projectile-ag
   "pf" 'helm-projectile-find-file
-  "fr" 'helm-recentf
   "pp" 'helm-projectile-switch-project
+  "pi" 'projectile-invalidate-cache
   "TAB" 'switch-to-previous-buffer
   "SPC" 'helm-M-x
   "v" 'er/expand-region
