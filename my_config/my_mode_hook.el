@@ -4,7 +4,10 @@
 
 (setq-default tab-width 4)
 
-(add-hook 'prog-mode-hook 'linum-mode t)
+(add-hook 'prog-mode-hook
+		  '(lambda ()
+			 (linum-mode t)
+			 (hungry-delete-mode t)))
 
 (add-hook 'php-mode-hook
           '(lambda ()

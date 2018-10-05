@@ -8,6 +8,7 @@
   "fs" 'helm-ag-this-file
   "bb" 'helm-buffers-list
   "by" 'copy-all-or-region
+  "bk" 'kill-this-buffer
   "w/" 'split-window-right
   "w-" 'split-window-below
   "wm" 'delete-other-windows
