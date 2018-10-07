@@ -1,11 +1,13 @@
 ;; org
 (require 'org-bullets)
-(add-hook 'org-mode-hook 'org-bullets-mode)
 
 (setq org-todo-keywords
 	'((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
 
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-(add-hook 'org-mode-hook (lambda () (org-remove-inline-images)))
+(add-hook 'org-mode-hook (lambda ()
+						   (setq truncate-lines nil)
+						   (org-remove-inline-images)
+						   (org-bullets-mode t)
+						   ))
 
 (provide 'my_org)

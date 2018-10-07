@@ -19,6 +19,11 @@
   "TAB" 'switch-to-previous-buffer
   "SPC" 'helm-M-x
   "v" 'er/expand-region
+  "jf" 'helm-imenu
+  "jd" 'ac-php-find-symbol-at-point
+  "jb" 'ac-php-location-stack-back
+  "rt" 'ac-php-remake-tags
+  "ra" 'ac-php-remake-tags-all
 )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
