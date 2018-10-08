@@ -7,8 +7,8 @@
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
-;; 更改光标的样式（不能生效，解决方案见第二集）
-(setq cursor-type 'bar)
+;; 更改光标的样式
+(setq-default cursor-type 'bar)
 
 ;; 关闭启动帮助画面
 (setq inhibit-splash-screen 1)
