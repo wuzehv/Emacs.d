@@ -24,6 +24,7 @@
   "jb" 'ac-php-location-stack-back
   "rt" 'ac-php-remake-tags
   "ra" 'ac-php-remake-tags-all
+  "d" 'dired-jump
 )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
@@ -31,5 +32,14 @@
 
 (define-key evil-normal-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)
+
+;; insert mode下使用emacs键位
+;; 移除insert本身的键位
+(setcdr evil-insert-state-map nil)
+;; 绑定emacs到insertxx
+(define-key evil-insert-state-map
+  (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+;; esc切换回insert
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
 
 (provide 'my_keymap)
