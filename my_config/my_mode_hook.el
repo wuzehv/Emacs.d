@@ -18,7 +18,6 @@
              (make-local-variable 'company-backends)
 			 (add-to-list 'company-backends 'company-ac-php-backend)))
 
-
 (add-hook 'web-mode-hook (lambda() (setq indent-tabs-mode t)))
 
 (require 'expand-region)
@@ -28,7 +27,6 @@
 
 (require 'helm-projectile)
 (helm-projectile-on)
-
 
 (add-to-list 'load-path
               "~/.emacs.d/snippets")
@@ -48,13 +46,5 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl.php?\\'" . web-mode))
-
-
-(add-to-list 'load-path
-              "~/.emacs.d/private")
-(require 'auto-save)
-
-(auto-save-enable)
-(setq auto-save-slient t)
 
 (provide 'my_mode_hook)

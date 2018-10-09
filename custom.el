@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
  '(auto-save-timeout 30)
+ '(auto-save-visited-interval 1)
  '(company-idle-delay 0)
  '(evil-leader/leader "SPC"))
 (custom-set-faces
