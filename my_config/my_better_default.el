@@ -23,4 +23,6 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+(auto-save-visited-mode t)
+
 (provide 'my_better_default)
