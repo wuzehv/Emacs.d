@@ -10,27 +10,29 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		    evil
-		    evil-leader 
-		    company
-			company-php
-			ac-php
-		    hungry-delete
-		    php-mode
-		    helm
-		    helm-ag
-		    helm-projectile
-		    dracula-theme
-		    projectile
-		    org-bullets
-			doom-modeline
-			expand-region
-			yasnippet
-			evil-surround
-			evil-nerd-commenter
-			which-key
-			popwin
-			web-mode
+					  evil
+					  evil-leader
+					  company
+					  company-php
+					  ac-php
+					  hungry-delete
+					  php-mode
+					  helm
+					  helm-ag
+					  helm-projectile
+					  dracula-theme
+					  monokai-theme
+					  tao-theme
+					  projectile
+					  org-bullets
+					  doom-modeline
+					  expand-region
+					  yasnippet
+					  evil-surround
+					  evil-nerd-commenter
+					  which-key
+					  popwin
+					  web-mode
 		) "Default packages")
 
 (setq package-selected-packages my/packages)
