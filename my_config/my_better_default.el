@@ -19,6 +19,9 @@
 
 (require 'dired-x)
 
+(require 'saveplace)
+(save-place-mode 1)
+
 ;; 延迟加载
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
