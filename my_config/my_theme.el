@@ -3,9 +3,10 @@
 
 (tool-bar-mode -1)
 
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(unless window-system
+	(menu-bar-mode -1))
 
-(menu-bar-mode -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; 关闭启动帮助画面
 (setq inhibit-splash-screen 1)
