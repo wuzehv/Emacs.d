@@ -2,23 +2,9 @@
 (global-evil-leader-mode)
 (evil-mode t)
 
-(setq-default tab-width 4)
+(add-hook 'prog-mode-hook 'my_prog_mode_setting)
 
-(add-hook 'prog-mode-hook
-		  '(lambda ()
-			 (linum-mode t)
-			 (hungry-delete-mode t)))
-
-(add-hook 'php-mode-hook
-          '(lambda ()
-			 (setq indent-tabs-mode t)
-             (require 'company-php)
-             (company-mode t)
-             (ac-php-core-eldoc-setup)
-             (make-local-variable 'company-backends)
-			 (add-to-list 'company-backends 'company-ac-php-backend)))
-
-(add-hook 'web-mode-hook (lambda() (setq indent-tabs-mode t)))
+(add-hook 'php-mode-hook 'my_php_mode_setting)
 
 (require 'expand-region)
 
@@ -28,10 +14,9 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
-(add-to-list 'load-path
-              "~/.emacs.d/snippets")
+(add-to-list 'load-path "~/.emacs.d/snippets")
 (require 'yasnippet)
-(yas-global-mode 1)
+(yas-global-mode t)
 
 (require 'evil-surround)
 (global-evil-surround-mode)
@@ -41,7 +26,7 @@
 (which-key-mode t)
 
 (require 'popwin)
-(popwin-mode 1)
+(popwin-mode t)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))

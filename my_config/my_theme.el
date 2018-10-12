@@ -1,17 +1,16 @@
 ;; theme
-(load-theme 'dracula 1)
+(load-theme 'dracula t)
 
 (tool-bar-mode -1)
 
+;; 如果直接设置, mac下不能全屏
 (unless window-system
 	(menu-bar-mode -1))
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; 关闭启动帮助画面
-(setq inhibit-splash-screen 1)
-
-(setq-default cursor-type 'bar)
+(setq inhibit-splash-screen t)
 
 (set-default-font "Source code pro 16")
 

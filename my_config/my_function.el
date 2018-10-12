@@ -1,7 +1,7 @@
 ;; function
 (defun open-init-file()
-	(interactive)
-	(find-file "~/.emacs.d/init.el"))
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
 
 (defun switch-to-previous-buffer ()
   "Switch to most recent buffer. Repeated calls toggle back and forth between the most recent two buffers."
@@ -33,5 +33,21 @@ Version 2015-08-22"
         (insert filename)
         (clipboard-kill-region (point-min) (point-max)))
       (message filename))))
+
+(defun my_prog_mode_setting()
+  "program setting"
+  (setq indent-tabs-mode t)
+  (setq-default tab-width 4)
+  (linum-mode t)
+  (hungry-delete-mode t))
+
+(defun my_php_mode_setting()
+  "php mode setting"
+  (setq indent-tabs-mode t)
+  (require 'company-php)
+  (company-mode t)
+  (ac-php-core-eldoc-setup)
+  (make-local-variable 'company-backends)
+  (add-to-list 'company-backends 'company-ac-php-backend))
 
 (provide 'my_function)
