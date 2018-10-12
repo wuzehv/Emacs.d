@@ -6,6 +6,7 @@
   "fr" 'helm-recentf
   "fc" 'recentf-cleanup
   "fs" 'helm-ag-this-file
+  "fe" 'sudo-edit
   "bb" 'helm-buffers-list
   "by" 'copy-all-or-region
   "bk" 'kill-this-buffer

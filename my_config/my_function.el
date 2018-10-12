@@ -50,4 +50,12 @@ Version 2015-08-22"
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends 'company-ac-php-backend))
 
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root"
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 (provide 'my_function)
