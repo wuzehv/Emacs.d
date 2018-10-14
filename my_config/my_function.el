@@ -39,6 +39,7 @@ Version 2015-08-22"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (linum-mode t)
+  (whitespace-mode t)
   (hungry-delete-mode t))
 
 (defun my_php_mode_setting()
