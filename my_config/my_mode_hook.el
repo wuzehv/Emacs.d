@@ -6,6 +6,8 @@
 
 (add-hook 'php-mode-hook 'my_php_mode_setting)
 
+(add-hook 'web-mode-hook 'my_web_mode_setting)
+
 (require 'expand-region)
 
 (require 'projectile)

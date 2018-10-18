@@ -26,7 +26,7 @@
   "rt" 'ac-php-remake-tags
   "ra" 'ac-php-remake-tags-all
   "d" 'dired-jump
-)
+  )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
 (global-set-key (kbd "M-x") 'helm-M-x)

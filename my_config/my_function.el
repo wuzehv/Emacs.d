@@ -36,8 +36,6 @@ Version 2015-08-22"
 
 (defun my_prog_mode_setting()
   "program setting"
-  (setq indent-tabs-mode t)
-  (setq-default tab-width 4)
   (linum-mode t)
   (whitespace-mode t)
   (hungry-delete-mode t))
@@ -45,11 +43,17 @@ Version 2015-08-22"
 (defun my_php_mode_setting()
   "php mode setting"
   (setq indent-tabs-mode t)
+  (setq-default tab-width 4)
   (require 'company-php)
   (company-mode t)
   (ac-php-core-eldoc-setup)
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends 'company-ac-php-backend))
+
+(defun my_web_mode_setting()
+  "web mode setting"
+  (setq-default tab-width 4)
+  (setq indent-tabs-mode t))
 
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root"
