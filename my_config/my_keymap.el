@@ -25,6 +25,7 @@
   "jb" 'ac-php-location-stack-back
   "rt" 'ac-php-remake-tags
   "ra" 'ac-php-remake-tags-all
+  "rn" 'rename-file-and-buffer
   "d" 'dired-jump
   )
 
@@ -37,7 +38,7 @@
 ;; insert mode下使用emacs键位
 ;; 移除insert本身的键位
 (setcdr evil-insert-state-map nil)
-;; 绑定emacs到insertxx
+;; 绑定emacs到insert
 (define-key evil-insert-state-map
   (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
 ;; esc切换回insert

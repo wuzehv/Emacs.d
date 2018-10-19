@@ -1,5 +1,5 @@
 ;; theme
-(load-theme 'dracula t)
+(load-theme 'doom-one t)
 
 (tool-bar-mode -1)
 

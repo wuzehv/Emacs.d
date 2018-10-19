@@ -20,8 +20,6 @@
                       helm
                       helm-ag
                       helm-projectile
-                      dracula-theme
-                      monokai-theme
                       tao-theme
                       doom-themes
                       projectile
