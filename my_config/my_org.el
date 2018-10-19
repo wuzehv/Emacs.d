@@ -1,6 +1,8 @@
 ;; org
 (require 'org-bullets)
 
+(setq org-fontify-done-headline t)
+
 (setq org-todo-keywords
       '((sequence "TODO(t)" "DOING(i)"  "|" "DONE(d)" "CANCELLED(c)")))
 
