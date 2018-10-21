@@ -7,6 +7,7 @@
   "fc" 'recentf-cleanup
   "fs" 'helm-ag-this-file
   "fe" 'sudo-edit
+  "fd" 'delete-current-file-copy-to-kill-ring
   "bb" 'helm-buffers-list
   "by" 'copy-all-or-region
   "bk" 'kill-this-buffer

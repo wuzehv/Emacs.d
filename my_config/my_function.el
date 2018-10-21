@@ -76,4 +76,18 @@ Version 2015-08-22"
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
 
+(defun delete-current-file-copy-to-kill-ring()
+  (interactive)
+  (progn
+    (kill-new (buffer-string))
+    (message "Buffer content copied to kill-ring")
+    (when (buffer-file-name)
+      (when (file-exists-p (buffer-file-name))
+        (progn
+          (delete-file (buffer-file-name))
+          (message "Deleted file: [%s]" (buffer-file-name)))))
+    (let ((buffer-offer-save nil))
+      (set-buffer-modified-p nil)
+      (kill-buffer (current-buffer)))))
+
 (provide 'my_function)
