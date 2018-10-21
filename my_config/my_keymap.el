@@ -15,6 +15,7 @@
   "w-" 'split-window-below
   "wm" 'delete-other-windows
   "sa" 'helm-projectile-ag
+  "sc" 'helm-occur
   "pf" 'helm-projectile-find-file
   "pp" 'helm-projectile-switch-project
   "pi" 'projectile-invalidate-cache

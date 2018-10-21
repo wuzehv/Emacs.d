@@ -32,6 +32,7 @@
                       which-key
                       popwin
                       web-mode
+                      disable-mouse
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

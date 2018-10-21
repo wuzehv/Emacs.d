@@ -44,4 +44,6 @@
 
 (global-prettify-symbols-mode t)
 
+(global-disable-mouse-mode)
+
 (provide 'my_better_default)
