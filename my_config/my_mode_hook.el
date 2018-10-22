@@ -8,30 +8,31 @@
 
 (add-hook 'web-mode-hook 'my_web_mode_setting)
 
-(require 'expand-region)
+(use-package projectile
+  :config
+  (projectile-global-mode +1))
 
-(require 'projectile)
-(projectile-global-mode +1)
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
 
-(require 'helm-projectile)
-(helm-projectile-on)
+(use-package yasnippet
+  :load-path "~/.emacs.d/snippets"
+  :config
+  (yas-global-mode t))
 
-(add-to-list 'load-path "~/.emacs.d/snippets")
-(require 'yasnippet)
-(yas-global-mode t)
-
-(require 'evil-surround)
 (global-evil-surround-mode)
 
 (evilnc-default-hotkeys)
 
 (which-key-mode t)
 
-(require 'popwin)
-(popwin-mode t)
+(use-package popwin
+  :config
+  (popwin-mode t))
 
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl.php?\\'" . web-mode))
+(use-package web
+  :mode ("\\.html?\\'" . web-mode)
+  :mode ("\\.tpl.php?\\'" . web-mode))
 
 (provide 'my_mode_hook)

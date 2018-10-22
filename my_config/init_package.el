@@ -34,6 +34,7 @@
                       web-mode
                       disable-mouse
                       iedit
+                      use-package
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
