@@ -29,6 +29,7 @@
   "ra" 'ac-php-remake-tags-all
   "rn" 'rename-file-and-buffer
   "d" 'dired-jump
+  "i" 'iedit-mode
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)

@@ -33,6 +33,7 @@
                       popwin
                       web-mode
                       disable-mouse
+                      iedit
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
