@@ -5,7 +5,7 @@
 
 (unless window-system
   (menu-bar-mode -1)
-  (load-theme 'tao-yin t))
+  (load-theme 'monokai t))
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 

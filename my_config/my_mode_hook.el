@@ -20,7 +20,7 @@
       helm-autoresize-min-height 20)
 
 (add-hook 'helm-minibuffer-set-up-hook
-          'spacemacs//helm-hide-minibuffer-maybe)
+          'my-helm-hide-minibuffer-maybe)
 
 (smooth-scrolling-mode t)
 

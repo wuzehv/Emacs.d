@@ -110,7 +110,7 @@ Version 2015-08-22"
   (org-open-at-point)
   (delete-other-windows))
 
-(defun spacemacs//helm-hide-minibuffer-maybe ()
+(defun my-helm-hide-minibuffer-maybe ()
   "Hide minibuffer in Helm session if we use the header line as input field."
   (when (with-helm-buffer helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
@@ -119,5 +119,12 @@ Version 2015-08-22"
                    (let ((bg-color (face-background 'default nil)))
                      `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
+
+(defun my_c_compile()
+  "auto compile c code && run"
+  (interactive)
+  (save-buffer)
+  (compile (format "gcc %s && ./a.out" (buffer-file-name)))
+  (switch-to-buffer-other-window "*compilation*"))
 
 (provide 'my_function)
