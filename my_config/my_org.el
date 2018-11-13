@@ -12,6 +12,7 @@
 (add-hook 'org-mode-hook (lambda ()
                            (setq truncate-lines nil)
                            (org-remove-inline-images)
-                           (org-bullets-mode t)))
+                           (org-bullets-mode t)
+                           (local-set-key (kbd "C-c C-o") 'my-org-open-at-point)))
 
 (provide 'my_org)

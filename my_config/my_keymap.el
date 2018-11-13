@@ -30,6 +30,10 @@
   "rn" 'rename-file-and-buffer
   "d" 'dired-jump
   "i" 'iedit-mode
+  "1" 'winum-select-window-1
+  "2" 'winum-select-window-2
+  "3" 'winum-select-window-3
+  "4" 'winum-select-window-4
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)

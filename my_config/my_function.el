@@ -104,4 +104,10 @@ Version 2015-08-22"
         (match-string 1 buf-coding)
       buf-coding)))
 
+(defun my-org-open-at-point ()
+  "open org file at point and full screen"
+  (interactive)
+  (org-open-at-point)
+  (delete-other-windows))
+
 (provide 'my_function)

@@ -8,6 +8,8 @@
 
 (add-hook 'web-mode-hook 'my_web_mode_setting)
 
+(winum-mode)
+
 (use-package projectile
   :config
   (projectile-global-mode +1))

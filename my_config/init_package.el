@@ -35,6 +35,7 @@
                       disable-mouse
                       iedit
                       use-package
+                      winum
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
