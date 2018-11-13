@@ -51,4 +51,10 @@
 ;; esc切换回insert
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
+(with-eval-after-load 'helm
+  (define-key helm-map [escape] 'helm-keyboard-quit)
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-z")  'helm-select-action))
+
 (provide 'my_keymap)

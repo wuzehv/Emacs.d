@@ -36,6 +36,7 @@
                       iedit
                       use-package
                       winum
+                      smooth-scrolling
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
