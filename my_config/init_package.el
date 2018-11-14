@@ -37,6 +37,7 @@
                       use-package
                       winum
                       smooth-scrolling
+                      magit
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
