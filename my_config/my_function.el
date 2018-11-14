@@ -127,4 +127,16 @@ Version 2015-08-22"
   (compile (format "gcc %s && ./a.out" (buffer-file-name)))
   (switch-to-buffer-other-window "*compilation*"))
 
+(defun my-indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (indent-region (point-min) (point-max))
+        (message "Indented buffer.")))))
+
 (provide 'my_function)

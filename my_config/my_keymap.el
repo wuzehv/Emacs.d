@@ -58,4 +58,6 @@
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z")  'helm-select-action))
 
+(global-set-key (kbd "C-M-\\") #'my-indent-region-or-buffer)
+
 (provide 'my_keymap)
