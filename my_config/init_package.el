@@ -37,7 +37,6 @@
                       winum
                       smooth-scrolling
                       magit
-                      vi-tilde-fringe
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

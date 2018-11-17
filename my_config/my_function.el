@@ -38,8 +38,7 @@ Version 2015-08-22"
   "program setting"
   (linum-mode t)
   (whitespace-mode t)
-  (hungry-delete-mode t)
-  (vi-tilde-fringe-mode t))
+  (hungry-delete-mode t))
 
 (defun my_php_mode_setting()
   "php mode setting"
