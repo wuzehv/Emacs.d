@@ -8,6 +8,8 @@
 
 (add-hook 'web-mode-hook 'my_web_mode_setting)
 
+(add-hook 'c-mode-hook 'my_c_mode_setting)
+
 (winum-mode)
 
 (setq helm-split-window-in-side-p           t

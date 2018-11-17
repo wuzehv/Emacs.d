@@ -34,7 +34,6 @@
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
-  "c" 'my_c_compile
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)

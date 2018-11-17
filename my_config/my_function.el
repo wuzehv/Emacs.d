@@ -55,6 +55,10 @@ Version 2015-08-22"
   (setq-default tab-width 4)
   (setq indent-tabs-mode t))
 
+(defun my_c_mode_setting()
+  "web mode setting"
+  (local-set-key (kbd "C-c C-c") 'my_c_compile))
+
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root"
   (interactive "P")
