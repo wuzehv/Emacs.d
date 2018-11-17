@@ -20,8 +20,7 @@
                       helm
                       helm-ag
                       helm-projectile
-                      tao-theme
-                      doom-themes
+                      dracula-theme
                       projectile
                       org-bullets
                       doom-modeline
