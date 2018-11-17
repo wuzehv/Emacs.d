@@ -10,6 +10,8 @@
 
 (add-hook 'c-mode-hook 'my_c_mode_setting)
 
+(vi-tilde-fringe-mode)
+
 (winum-mode)
 
 (setq helm-split-window-in-side-p           t
