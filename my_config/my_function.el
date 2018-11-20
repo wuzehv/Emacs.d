@@ -94,13 +94,6 @@ Version 2015-08-22"
       (set-buffer-modified-p nil)
       (kill-buffer (current-buffer)))))
 
-(define-advice show-paren-function (:around (fn) fix-show-paren-function)
-  "Highlight enclosing parens."
-  (cond ((looking-at-p "\\s(") (funcall fn))
-        (t (save-excursion
-             (ignore-errors (backward-up-list))
-             (funcall fn)))))
-
 (defun dotemacs-buffer-encoding-abbrev ()
   "The line ending convention used in the buffer."
   (let ((buf-coding (format "%s" buffer-file-coding-system)))
