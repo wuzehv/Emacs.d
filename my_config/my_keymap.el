@@ -58,5 +58,7 @@
   (define-key helm-map (kbd "C-z")  'helm-select-action))
 
 (global-set-key (kbd "C-M-\\") #'my-indent-region-or-buffer)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "M-s s") 'magit-status)
 
 (provide 'my_keymap)

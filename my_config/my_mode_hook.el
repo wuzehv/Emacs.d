@@ -17,7 +17,6 @@
       helm-ff-search-library-in-sexp        t
       helm-scroll-amount                    8
       helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line t
       helm-autoresize-max-height 0
       helm-autoresize-min-height 20)
 
