@@ -57,7 +57,10 @@ Version 2015-08-22"
 
 (defun my_c_mode_setting()
   "web mode setting"
-  (local-set-key (kbd "C-c C-c") 'my_c_compile))
+  (local-set-key (kbd "C-c C-c") 'my_c_compile)
+  (setq default-tab-width 4)
+  (setq c-default-style "Linux")
+  (setq c-basic-offset 4))
 
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root"
