@@ -44,11 +44,7 @@ Version 2015-08-22"
   "php mode setting"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
-  (require 'company-php)
-  (company-mode t)
-  (ac-php-core-eldoc-setup)
-  (make-local-variable 'company-backends)
-  (add-to-list 'company-backends 'company-ac-php-backend))
+  (company-mode t))
 
 (defun my_web_mode_setting()
   "web mode setting"
