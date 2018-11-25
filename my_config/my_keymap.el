@@ -23,10 +23,6 @@
   "SPC" 'helm-M-x
   "v" 'er/expand-region
   "jf" 'helm-imenu
-  "jd" 'ac-php-find-symbol-at-point
-  "jb" 'ac-php-location-stack-back
-  "rt" 'ac-php-remake-tags
-  "ra" 'ac-php-remake-tags-all
   "rn" 'rename-file-and-buffer
   "d" 'dired-jump
   "i" 'iedit-mode

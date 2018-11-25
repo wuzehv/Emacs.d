@@ -13,8 +13,6 @@
                       evil
                       evil-leader
                       company
-                      company-php
-                      ac-php
                       hungry-delete
                       php-mode
                       helm
