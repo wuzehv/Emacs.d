@@ -44,6 +44,7 @@ Version 2015-08-22"
   "php mode setting"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
+  (helm-gtags-mode)
   (company-mode t))
 
 (defun my_web_mode_setting()

@@ -17,6 +17,7 @@
                       php-mode
                       helm
                       helm-ag
+                      helm-gtags
                       helm-projectile
                       dracula-theme
                       projectile

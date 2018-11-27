@@ -30,6 +30,10 @@
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
+  "gd" 'helm-gtags-find-tag-from-here
+  "gr" 'helm-gtags-find-rtag
+  "gp" 'helm-gtags-previous-history
+  "gn" 'helm-gtags-next-history
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
