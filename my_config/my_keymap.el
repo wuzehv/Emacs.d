@@ -23,10 +23,6 @@
   "SPC" 'helm-M-x
   "v" 'er/expand-region
   "jf" 'helm-imenu
-  "jd" 'ac-php-find-symbol-at-point
-  "jb" 'ac-php-location-stack-back
-  "rt" 'ac-php-remake-tags
-  "ra" 'ac-php-remake-tags-all
   "rn" 'rename-file-and-buffer
   "d" 'dired-jump
   "i" 'iedit-mode
@@ -34,6 +30,10 @@
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
+  "gd" 'helm-gtags-find-tag-from-here
+  "gr" 'helm-gtags-find-rtag
+  "gp" 'helm-gtags-previous-history
+  "gn" 'helm-gtags-next-history
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
