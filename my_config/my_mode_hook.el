@@ -52,4 +52,16 @@
   :mode ("\\.html?\\'" . web-mode)
   :mode ("\\.tpl.php?\\'" . web-mode))
 
+;; (add-to-list 'load-path "~/.emacs.d/private/google-translate")
+;; (require 'google-translate)
+;; (setq-default google-translate-enable-ido-completion t)
+
+;; (setq-default google-translate-default-source-language "en")
+;; (setq-default google-translate-default-target-language "zh-CN")
+
+(setq url-automatic-caching t)
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+(push "*Youdao Dictionary*" popwin:special-display-config)
+(setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
+
 (provide 'my_mode_hook)

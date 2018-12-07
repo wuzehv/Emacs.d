@@ -37,6 +37,7 @@
                       winum
                       smooth-scrolling
                       magit
+                      youdao-dictionary
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
