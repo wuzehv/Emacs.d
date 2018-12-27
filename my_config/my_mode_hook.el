@@ -60,8 +60,9 @@
 ;; (setq-default google-translate-default-target-language "zh-CN")
 
 (setq url-automatic-caching t)
-(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
-(push "*Youdao Dictionary*" popwin:special-display-config)
-(setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
+(global-set-key (kbd "C-c y") 'my-youdao-dictionary-search-at-point)
+(global-set-key (kbd "C-c t") 'youdao-dictionary-search-at-point-tooltip)
+;; (push "*Youdao Dictionary*" popwin:special-display-config)
+;; (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
 
 (provide 'my_mode_hook)

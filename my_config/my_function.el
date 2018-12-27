@@ -136,4 +136,12 @@ Version 2015-08-22"
         (indent-region (point-min) (point-max))
         (message "Indented buffer.")))))
 
+(defun my-youdao-dictionary-search-at-point()
+  (interactive)
+  (let ((last-buffer (buffer-name)))
+    (ignore-errors (kill-buffer "*Youdao Dictionary*"))
+    (youdao-dictionary-search-at-point)
+    (when (get-buffer "*Youdao Dictionary*")
+      (switch-to-buffer-other-window last-buffer))))
+
 (provide 'my_function)
