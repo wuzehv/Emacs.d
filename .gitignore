@@ -3,7 +3,7 @@ elpa
 recentf
 .emacs.d
 projectile*
-shell
 places
-url
 eshell
+tramp
+url

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: cinit
+# key: cinit
+# --
+#include <stdio.h>
+$1
+
+int main() {
+  $2
+  return 0;
+}
+
