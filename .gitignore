@@ -1,1 +1,9 @@
-.spacemacs.env
+auto-save-list
+elpa
+recentf
+.emacs.d
+projectile*
+shell
+places
+url
+eshell
