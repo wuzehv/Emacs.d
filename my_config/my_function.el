@@ -45,7 +45,14 @@ Version 2015-08-22"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (helm-gtags-mode)
-  (company-mode t))
+  (company-mode t)
+  (require 'company-php)
+  (company-mode t)
+  (ac-php-core-eldoc-setup) ;; enable eldoc
+  (make-local-variable 'company-backends)
+  (add-to-list 'company-backends 'company-ac-php-backend)
+  (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
+  (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back))    ;go back
 
 (defun my_web_mode_setting()
   "web mode setting"

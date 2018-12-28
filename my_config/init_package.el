@@ -17,8 +17,9 @@
                       php-mode
                       helm
                       helm-ag
-                      helm-gtags
                       helm-projectile
+                      company-php
+                      ac-php
                       dracula-theme
                       projectile
                       org-bullets
