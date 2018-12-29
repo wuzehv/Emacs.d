@@ -30,10 +30,8 @@
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
-  "gd" 'helm-gtags-find-tag-from-here
-  "gr" 'helm-gtags-find-rtag
-  "gp" 'helm-gtags-previous-history
-  "gn" 'helm-gtags-next-history
+  "gd" 'ac-php-find-symbol-at-point
+  "gr" 'ac-php-location-stack-back
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)

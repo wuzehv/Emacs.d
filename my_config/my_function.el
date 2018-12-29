@@ -50,9 +50,7 @@ Version 2015-08-22"
   (company-mode t)
   (ac-php-core-eldoc-setup) ;; enable eldoc
   (make-local-variable 'company-backends)
-  (add-to-list 'company-backends 'company-ac-php-backend)
-  (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
-  (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back))    ;go back
+  (add-to-list 'company-backends 'company-ac-php-backend))
 
 (defun my_web_mode_setting()
   "web mode setting"
