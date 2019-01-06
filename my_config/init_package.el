@@ -21,6 +21,7 @@
                       company-php
                       ac-php
                       dracula-theme
+		      monokai-theme
                       projectile
                       org-bullets
                       doom-modeline
