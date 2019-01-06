@@ -18,7 +18,8 @@
       helm-scroll-amount                    8
       helm-ff-file-name-history-use-recentf t
       helm-autoresize-max-height 0
-      helm-autoresize-min-height 20)
+      helm-autoresize-min-height 20
+      helm-ag-insert-at-point 'symbol)
 
 (add-hook 'helm-minibuffer-set-up-hook
           'my-helm-hide-minibuffer-maybe)
@@ -52,17 +53,14 @@
   :mode ("\\.html?\\'" . web-mode)
   :mode ("\\.tpl.php?\\'" . web-mode))
 
-;; (add-to-list 'load-path "~/.emacs.d/private/google-translate")
-;; (require 'google-translate)
-;; (setq-default google-translate-enable-ido-completion t)
-
-;; (setq-default google-translate-default-source-language "en")
-;; (setq-default google-translate-default-target-language "zh-CN")
-
 (setq url-automatic-caching t)
-(global-set-key (kbd "C-c y") 'my-youdao-dictionary-search-at-point)
-(global-set-key (kbd "C-c t") 'youdao-dictionary-search-at-point-tooltip)
-;; (push "*Youdao Dictionary*" popwin:special-display-config)
-;; (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
+
+(add-hook 'youdao-dictionary-mode-hook #'(lambda ()
+                                           (evil-emacs-state)))
+
+(define-key evil-normal-state-map (kbd "*")
+  (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
+(define-key evil-normal-state-map (kbd "#")
+  (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word)))))
 
 (provide 'my_mode_hook)

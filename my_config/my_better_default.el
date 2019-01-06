@@ -45,4 +45,7 @@
 
 (global-disable-mouse-mode)
 
+(modify-syntax-entry ?_ "w")
+(modify-syntax-entry ?- "w")
+
 (provide 'my_better_default)

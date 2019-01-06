@@ -38,6 +38,8 @@
                       smooth-scrolling
                       magit
                       youdao-dictionary
+                      flycheck
+                      swiper
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
