@@ -48,4 +48,6 @@
 (modify-syntax-entry ?_ "w")
 (modify-syntax-entry ?- "w")
 
+(global-superword-mode)
+
 (provide 'my_better_default)
