@@ -65,14 +65,6 @@ Version 2015-08-22"
   (setq c-default-style "Linux")
   (setq c-basic-offset 4))
 
-(defun sudo-edit (&optional arg)
-  "Edit currently visited file as root"
-  (interactive "P")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:"
-                         (ido-read-file-name "Find file(as root): ")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
 (defun rename-file-and-buffer()
   "Rename the current buffer and file it is visiting."
   (interactive)

@@ -6,7 +6,6 @@
   "fr" 'helm-recentf
   "fc" 'recentf-cleanup
   "fs" 'helm-ag-this-file
-  "fe" 'sudo-edit
   "fd" 'delete-current-file-copy-to-kill-ring
   "bb" 'helm-buffers-list
   "by" 'copy-all-or-region
@@ -15,7 +14,6 @@
   "w-" 'split-window-below
   "wm" 'delete-other-windows
   "sa" 'helm-projectile-ag
-  "sc" 'helm-occur
   "pf" 'helm-projectile-find-file
   "pp" 'helm-projectile-switch-project
   "pi" 'projectile-invalidate-cache
@@ -61,5 +59,6 @@
 
 (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
 (global-set-key (kbd "C-c t") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "C-s") 'helm-swoop)
 
 (provide 'my_keymap)

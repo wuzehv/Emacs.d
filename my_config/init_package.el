@@ -18,10 +18,10 @@
                       helm
                       helm-ag
                       helm-projectile
+                      helm-swoop
                       company-php
                       ac-php
-                      dracula-theme
-		      monokai-theme
+                      monokai-theme
                       projectile
                       org-bullets
                       doom-modeline
@@ -40,7 +40,6 @@
                       magit
                       youdao-dictionary
                       flycheck
-                      swiper
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

@@ -58,9 +58,7 @@
 (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                            (evil-emacs-state)))
 
-(define-key evil-normal-state-map (kbd "*")
-  (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
 (define-key evil-normal-state-map (kbd "#")
-  (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word)))))
+  (lambda () (interactive) (helm-swoop)))
 
 (provide 'my_mode_hook)

@@ -4,11 +4,7 @@
 
 (require 'init_package)
 
-(require 'my_theme)
-
 (require 'my_function)
-
-(require 'my_org)
 
 (require 'my_mode_hook)
 

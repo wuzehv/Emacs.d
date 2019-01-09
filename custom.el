@@ -21,4 +21,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-done ((t (:inherit org-headline-done :foreground "dim gray" :strike-through t :weight bold))))
- '(org-headline-done ((t (:foreground "dim gray" :strike-through t)))))
+ '(org-headline-done ((t (:foreground "dim gray" :strike-through t))))
+ '(region ((t (:inherit highlight :background "dark slate gray")))))
