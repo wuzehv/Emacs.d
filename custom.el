@@ -22,4 +22,5 @@
  ;; If there is more than one, they won't work right.
  '(org-done ((t (:inherit org-headline-done :foreground "dim gray" :strike-through t :weight bold))))
  '(org-headline-done ((t (:foreground "dim gray" :strike-through t))))
- '(region ((t (:inherit highlight :background "dark slate gray")))))
+ '(region ((t (:inherit highlight :background "dark slate gray"))))
+ '(whitespace-empty ((t (:foreground "light gray" :inverse-video t)))))
