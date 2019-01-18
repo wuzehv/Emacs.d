@@ -91,7 +91,6 @@
                            (hungry-delete-mode t)
                            (local-set-key (kbd "C-c C-o") 'my-org-open-at-point)))
 
-(provide 'my_org)
-
+(setq mode-require-final-newline nil)
 
 (provide 'my_better_default)

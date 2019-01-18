@@ -61,4 +61,6 @@
 (define-key evil-normal-state-map (kbd "#")
   (lambda () (interactive) (helm-swoop)))
 
+(setq auto-revert-check-vc-info t)
+
 (provide 'my_mode_hook)

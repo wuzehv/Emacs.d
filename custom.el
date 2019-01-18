@@ -14,7 +14,7 @@
  '(global-whitespace-mode t)
  '(global-whitespace-newline-mode nil)
  '(indent-tabs-mode nil)
- '(smooth-scroll-margin 3)
+ '(smooth-scroll-margin 10)
  '(whitespace-style (quote (face tabs tab-mark))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
