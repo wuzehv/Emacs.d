@@ -1,0 +1,3 @@
+[submodule "private/ob-php"]
+	path = private/ob-php
+	url = https://github.com/stardiviner/ob-php.git

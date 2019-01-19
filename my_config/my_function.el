@@ -134,4 +134,25 @@ Version 2015-08-22"
         (indent-region (point-min) (point-max))
         (message "Indented buffer.")))))
 
+(defun my-org-screenshot (basename)
+  "Take a screenshot into a time stamped unique-named file in the
+same directory as the org-buffer and insert a link to this file."
+  (interactive "sScreenshot name: ")
+  (if (equal basename "")
+      (setq basename (format-time-string "%Y%m%d_%H%M%S")))
+  (setq filename
+        (concat (file-name-directory (buffer-file-name))
+                "imgs/"
+                (file-name-base (buffer-file-name))
+                "_"
+                basename
+                ".png"))
+  (call-process "screencapture" nil nil nil "-s" filename)
+  (when (file-exists-p filename)
+    (insert "#+CAPTION:")
+    (insert basename)
+    (insert "\n")
+    (insert (concat "[[" filename "]]"))
+    (org-display-inline-images)))
+
 (provide 'my_function)
