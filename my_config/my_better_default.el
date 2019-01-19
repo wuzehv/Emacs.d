@@ -102,6 +102,4 @@
    (php . t)
    (shell . t)))
 
-(setq inhibit-read-only t)
-
 (provide 'my_better_default)
