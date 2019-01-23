@@ -45,7 +45,6 @@ Version 2015-08-22"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (flycheck-mode)
-  (helm-gtags-mode)
   (company-mode t)
   (require 'company-php)
   (company-mode t)
