@@ -40,6 +40,7 @@
                       magit
                       youdao-dictionary
                       flycheck
+                      htmlize
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
