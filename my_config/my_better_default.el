@@ -12,6 +12,9 @@
 (setq inhibit-splash-screen t)
 
 (set-default-font "Source code pro 16")
+(if window-system
+(set-fontset-font "fontset-default"
+                  'gb18030' ("微软雅黑" . "unicode-bmp")))
 
 (setq-default linum-format "%4d ")
 
