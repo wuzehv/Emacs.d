@@ -89,6 +89,7 @@
                            (org-remove-inline-images)
                            (org-bullets-mode t)
                            (hungry-delete-mode t)
+                           (setq org-bullets-bullet-list '("♡" "♤" "♧" "♢" "♥" "♠" "♣" "♦" ))
                            (local-set-key (kbd "C-c C-o") 'my-org-open-at-point)))
 
 (setq mode-require-final-newline nil)
