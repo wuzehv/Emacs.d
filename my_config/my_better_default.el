@@ -74,8 +74,6 @@
 (modify-syntax-entry ?_ "w")
 (modify-syntax-entry ?- "w")
 
-(global-superword-mode)
-
 ;; org
 (require 'org-bullets)
 
