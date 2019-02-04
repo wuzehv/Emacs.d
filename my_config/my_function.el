@@ -36,7 +36,7 @@ Version 2015-08-22"
 
 (defun my_prog_mode_setting()
   "program setting"
-  (linum-mode t)
+  (display-line-numbers-mode t)
   (whitespace-mode t)
   (hungry-delete-mode t))
 
@@ -153,5 +153,13 @@ same directory as the org-buffer and insert a link to this file."
     (insert "\n")
     (insert (concat "[[" filename "]]"))
     (org-display-inline-images)))
+
+(defun my-set-chinese-font (love-font)
+  "根据系统设置中文字体"
+  (when (member love-font (font-family-list))
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family love-font :size 16)))))
 
 (provide 'my_function)

@@ -11,10 +11,19 @@
 ;; 关闭启动帮助画面
 (setq inhibit-splash-screen t)
 
-(set-default-font "Source code pro 16")
-(if window-system
-(set-fontset-font "fontset-default"
-                  'gb18030' ("微软雅黑" . "unicode-bmp")))
+(set-face-attribute 'default nil :font "Source code pro 16")
+
+;; 设置中文字体
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (when (member "微软雅黑" (font-family-list))
+    (my-set-chinese-font "微软雅黑")))
+ ((string-equal system-type "darwin") ; macOS
+  (when (member "Hannotate SC" (font-family-list))
+    (my-set-chinese-font "Hannotate SC")))
+ ((string-equal system-type "gnu/linux") ; linux
+  (when (member "DejaVu Sans Mono" (font-family-list))
+    (my-set-chinese-font "DejaVu Sans Mono"))))
 
 (setq-default linum-format "%4d ")
 
