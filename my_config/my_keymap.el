@@ -61,4 +61,6 @@
 (global-set-key (kbd "C-c t") 'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-s") 'helm-swoop)
 
+(global-set-key (kbd "C-c C-v") 'browse-url-of-buffer)
+
 (provide 'my_keymap)
