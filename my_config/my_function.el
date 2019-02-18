@@ -154,12 +154,14 @@ same directory as the org-buffer and insert a link to this file."
     (insert (concat "[[" filename "]]"))
     (org-display-inline-images)))
 
-(defun my-set-chinese-font (love-font)
+(defun my-set-chinese-font (love-font &optional size)
   "根据系统设置中文字体"
+  (unless size
+    (setq size 16))
   (when (member love-font (font-family-list))
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family love-font :size 16)))))
+                        (font-spec :family love-font :size size)))))
 
 (provide 'my_function)

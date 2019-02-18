@@ -17,7 +17,7 @@
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (when (member "微软雅黑" (font-family-list))
-    (my-set-chinese-font "微软雅黑")))
+    (my-set-chinese-font "微软雅黑" 18)))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Hannotate SC" (font-family-list))
     (my-set-chinese-font "Hannotate SC")))
