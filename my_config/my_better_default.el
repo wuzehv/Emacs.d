@@ -125,6 +125,4 @@
       (cons '("~" '(:emphasis t :foreground "red"))
             (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
 
-(setq recentf-max-menu-items 500)
-
 (provide 'my_better_default)
