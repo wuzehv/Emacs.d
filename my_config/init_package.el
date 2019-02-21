@@ -20,6 +20,7 @@
                       helm-projectile
                       helm-swoop
                       company-php
+                      company-shell
                       ac-php
                       monokai-theme
                       projectile

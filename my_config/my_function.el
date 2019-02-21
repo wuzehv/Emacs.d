@@ -52,6 +52,14 @@ Version 2015-08-22"
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends 'company-ac-php-backend))
 
+(defun my_sh_mode_setting()
+  "php mode setting"
+  (flycheck-mode)
+  (company-mode t)
+  (require 'company-shell)
+  (company-mode t)
+  (add-to-list 'company-backends 'company-shll))
+
 (defun my_web_mode_setting()
   "web mode setting"
   (setq-default tab-width 4)

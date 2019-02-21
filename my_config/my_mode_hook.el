@@ -6,6 +6,8 @@
 
 (add-hook 'php-mode-hook 'my_php_mode_setting)
 
+(add-hook 'sh-mode-hook 'my_sh_mode_setting)
+
 (add-hook 'web-mode-hook 'my_web_mode_setting)
 
 (add-hook 'c-mode-hook 'my_c_mode_setting)
