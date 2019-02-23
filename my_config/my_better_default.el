@@ -125,4 +125,7 @@
       (cons '("~" '(:emphasis t :foreground "red"))
             (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
 
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+(push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
+
 (provide 'my_better_default)
