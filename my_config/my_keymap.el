@@ -63,4 +63,6 @@
 
 (global-set-key (kbd "C-c C-v") 'browse-url-of-buffer)
 
+(define-key evil-motion-state-map (kbd "C-i") nil)
+
 (provide 'my_keymap)
