@@ -38,6 +38,7 @@ Version 2015-08-22"
   "program setting"
   (display-line-numbers-mode t)
   (whitespace-mode t)
+  (flyspell-mode)
   (hungry-delete-mode t))
 
 (defun my_php_mode_setting()
