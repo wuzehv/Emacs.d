@@ -21,7 +21,8 @@
       helm-ff-file-name-history-use-recentf t
       helm-autoresize-max-height 0
       helm-autoresize-min-height 20
-      helm-ag-insert-at-point 'symbol)
+      ;; helm-ag-insert-at-point 'symbol
+      )
 
 (add-hook 'helm-minibuffer-set-up-hook
           'my-helm-hide-minibuffer-maybe)

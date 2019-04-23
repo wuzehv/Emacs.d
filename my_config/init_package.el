@@ -17,6 +17,7 @@
                       php-mode
                       helm
                       helm-ag
+                      helm-rg
                       helm-projectile
                       helm-swoop
                       company-php
@@ -42,6 +43,8 @@
                       youdao-dictionary
                       flycheck
                       htmlize
+                      markdown-mode
+                      lua-mode
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

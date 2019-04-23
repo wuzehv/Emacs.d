@@ -156,9 +156,10 @@ same directory as the org-buffer and insert a link to this file."
                 ".png"))
   (call-process "screencapture" nil nil nil "-s" filename)
   (when (file-exists-p filename)
-    (insert "#+CAPTION:")
-    (insert basename)
-    (insert "\n")
+    ;; 添加子元素
+    (org-insert-item)
+    ;; 调整优先级
+    (org-metaright)
     (insert (concat "[[" filename "]]"))
     (org-display-inline-images)))
 

@@ -63,6 +63,7 @@
 (auto-save-visited-mode t)
 
 (electric-pair-mode t)
+
 (setq electric-pair-pairs '(
                             (?\" . ?\")
                             (?\` . ?\`)
@@ -96,10 +97,11 @@
 
 (add-hook 'org-mode-hook (lambda ()
                            (setq truncate-lines nil)
-                           (org-remove-inline-images)
+                           (org-display-inline-images)
                            (org-bullets-mode t)
                            (hungry-delete-mode t)
-                           (setq org-bullets-bullet-list '("♡" "♤" "♧" "♢" "♥" "♠" "♣" "♦" ))
+                           ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
+                           (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
                            (local-set-key (kbd "C-c C-o") 'my-org-open-at-point)))
 
 (setq mode-require-final-newline nil)
