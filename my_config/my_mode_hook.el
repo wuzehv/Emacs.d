@@ -66,4 +66,6 @@
 
 (setq auto-revert-check-vc-info t)
 
+(require 'aweshell)
+
 (provide 'my_mode_hook)

@@ -106,8 +106,6 @@
 
 (setq mode-require-final-newline nil)
 
-(add-to-list 'load-path "~/.emacs.d/private/ob-php")
-
 (setq org-confirm-babel-evaluate nil)
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -126,5 +124,8 @@
 (setq org-emphasis-alist
       (cons '("~" '(:emphasis t :foreground "red"))
             (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
+
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+(push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
 
 (provide 'my_better_default)
