@@ -38,14 +38,13 @@ Version 2015-08-22"
   "program setting"
   (display-line-numbers-mode t)
   (whitespace-mode t)
-  (flyspell-mode)
-  (hungry-delete-mode t))
+  (hungry-delete-mode t)
+  (flycheck-mode))
 
 (defun my_php_mode_setting()
   "php mode setting"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
-  (flycheck-mode)
   (company-mode t)
   (require 'company-php)
   (company-mode t)

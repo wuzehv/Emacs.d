@@ -17,7 +17,6 @@
                       php-mode
                       helm
                       helm-ag
-                      helm-rg
                       helm-projectile
                       helm-swoop
                       company-php
@@ -45,6 +44,7 @@
                       htmlize
                       markdown-mode
                       lua-mode
+                      haskell-mode
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
