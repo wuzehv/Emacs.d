@@ -38,8 +38,7 @@ Version 2015-08-22"
   "program setting"
   (display-line-numbers-mode t)
   (whitespace-mode t)
-  (hungry-delete-mode t)
-  (flycheck-mode))
+  (hungry-delete-mode t))
 
 (defun my_php_mode_setting()
   "php mode setting"
@@ -47,6 +46,7 @@ Version 2015-08-22"
   (setq-default tab-width 4)
   (company-mode t)
   (require 'company-php)
+  (flycheck-mode)
   (company-mode t)
   (ac-php-core-eldoc-setup) ;; enable eldoc
   (make-local-variable 'company-backends)
