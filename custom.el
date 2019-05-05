@@ -52,7 +52,7 @@
  '(helm-rg-base-rg-cmd-face ((t (:weight normal))))
  '(helm-rg-inactive-arg-face ((t (:weight normal))))
  '(helm-rg-title-face ((t (:background "black" :weight bold))))
- '(line-number ((t (:inherit default :background "black" :foreground "color-34" :underline nil :weight bold))))
+ '(line-number ((t (:inherit default :background "color-236" :foreground "color-248" :underline nil))))
  '(line-number-current-line ((t (:inherit default :background "#1B1E1C" :foreground "#F5F5F5" :underline nil :weight bold))))
  '(org-done ((t (:inherit org-headline-done :foreground "dim gray" :strike-through t :weight bold))))
  '(org-headline-done ((t (:foreground "dim gray" :strike-through t))))
