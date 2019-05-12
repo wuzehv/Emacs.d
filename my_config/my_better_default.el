@@ -64,14 +64,6 @@
 
 (electric-pair-mode t)
 
-(setq electric-pair-pairs '(
-                            (?\" . ?\")
-                            (?\` . ?\`)
-                            (?\( . ?\))
-                            (?\{ . ?\})
-                            (?\' . ?\')
-                            ))
-
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
