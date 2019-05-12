@@ -129,6 +129,12 @@ Version 2015-08-22"
   (compile (format "gcc %s && ./a.out" (buffer-file-name)))
   (switch-to-buffer-other-window "*compilation*"))
 
+(defun my_haskell_mode_map()
+  "fix evil normal 状态下 haskell mode \"o\"键 缩进问题"
+  (interactive)
+  (evil-append-line 1)
+  (haskell-indentation-newline-and-indent))
+
 (defun my-indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)

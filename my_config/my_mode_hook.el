@@ -12,6 +12,8 @@
 
 (add-hook 'c-mode-hook 'my_c_mode_setting)
 
+(evil-define-key 'normal haskell-mode-map "o" 'my_haskell_mode_map)
+
 (winum-mode)
 
 (setq helm-split-window-in-side-p           t
