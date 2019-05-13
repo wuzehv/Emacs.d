@@ -61,4 +61,4 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-(provide 'init_package)
+(provide 'init-packages)

@@ -1,4 +1,6 @@
-;;theme
+(global-evil-leader-mode)
+(evil-mode t)
+
 (load-theme 'monokai t)
 
 (tool-bar-mode -1)
@@ -120,4 +122,51 @@
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 (push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
 
-(provide 'my_better_default)
+(setq auto-revert-check-vc-info t)
+
+(require 'aweshell)
+
+(winum-mode)
+
+(setq helm-split-window-in-side-p           t
+      helm-move-to-line-cycle-in-source     t
+      helm-ff-search-library-in-sexp        t
+      helm-scroll-amount                    8
+      helm-ff-file-name-history-use-recentf t
+      helm-autoresize-max-height 0
+      helm-autoresize-min-height 20
+      ;; helm-ag-insert-at-point 'symbol
+      )
+
+(smooth-scrolling-mode t)
+
+(use-package projectile
+  :config
+  (projectile-global-mode +1))
+
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
+
+(use-package yasnippet
+  :load-path "~/.emacs.d/snippets"
+  :config
+  (yas-global-mode t))
+
+(global-evil-surround-mode)
+
+(evilnc-default-hotkeys)
+
+(which-key-mode t)
+
+(use-package popwin
+  :config
+  (popwin-mode t))
+
+(use-package web
+  :mode ("\\.html?\\'" . web-mode)
+  :mode ("\\.tpl.php?\\'" . web-mode))
+
+(setq url-automatic-caching t)
+
+(provide 'better-default)

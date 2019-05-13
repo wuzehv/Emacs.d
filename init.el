@@ -1,20 +1,20 @@
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/my_config")
+(add-to-list 'load-path "~/.emacs.d/emacs-world")
 
 ;; 自动添加private下子模块目录
 (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
 
-(require 'init_package)
+(require 'init-packages)
 
-(require 'my_function)
+(require 'better-default)
 
-(require 'my_mode_hook)
+(require 'mode-hook)
 
-(require 'my_better_default)
+(require 'misc-funcs)
 
-(require 'my_keymap)
+(require 'keymap)
 
 ;; custom
 (setq custom-file (expand-file-name "custom.el" "~/.emacs.d"))

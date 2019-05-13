@@ -65,4 +65,9 @@
 
 (define-key evil-motion-state-map (kbd "C-i") nil)
 
-(provide 'my_keymap)
+(evil-define-key 'normal haskell-mode-map "o" 'my_haskell_mode_map)
+
+(define-key evil-normal-state-map (kbd "#")
+  (lambda () (interactive) (helm-swoop)))
+
+(provide 'keymap)

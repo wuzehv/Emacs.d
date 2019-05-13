@@ -34,44 +34,6 @@ Version 2015-08-22"
         (clipboard-kill-region (point-min) (point-max)))
       (message filename))))
 
-(defun my_prog_mode_setting()
-  "program setting"
-  (display-line-numbers-mode t)
-  (whitespace-mode t)
-  (hungry-delete-mode t))
-
-(defun my_php_mode_setting()
-  "php mode setting"
-  (setq indent-tabs-mode t)
-  (setq-default tab-width 4)
-  (company-mode t)
-  (require 'company-php)
-  (flycheck-mode)
-  (company-mode t)
-  (ac-php-core-eldoc-setup) ;; enable eldoc
-  (make-local-variable 'company-backends)
-  (add-to-list 'company-backends 'company-ac-php-backend))
-
-(defun my_sh_mode_setting()
-  "php mode setting"
-  (flycheck-mode)
-  (company-mode t)
-  (require 'company-shell)
-  (company-mode t)
-  (add-to-list 'company-backends 'company-shll))
-
-(defun my_web_mode_setting()
-  "web mode setting"
-  (setq-default tab-width 4)
-  (setq indent-tabs-mode t))
-
-(defun my_c_mode_setting()
-  "web mode setting"
-  (local-set-key (kbd "C-c C-c") 'my_c_compile)
-  (setq default-tab-width 4)
-  (setq c-default-style "Linux")
-  (setq c-basic-offset 4))
-
 (defun rename-file-and-buffer()
   "Rename the current buffer and file it is visiting."
   (interactive)
@@ -187,4 +149,4 @@ same directory as the org-buffer and insert a link to this file."
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
-(provide 'my_function)
+(provide 'misc-funcs)
