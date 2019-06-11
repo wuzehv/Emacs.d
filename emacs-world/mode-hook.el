@@ -53,10 +53,4 @@
 (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                            (evil-emacs-state)))
 
-(defun date-hook-fn ()
-  (goto-char (line-end-position))
-  (insert (format-time-string " ~:%Y-%m-%d %H:%M:%S~")))
-
-(add-hook 'org-checkbox-statistics-hook 'date-hook-fn)
-
 (provide 'mode-hook)
