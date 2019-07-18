@@ -44,7 +44,7 @@
      (slime-connection-list-mode))))
  '(smooth-scroll-margin 10)
  '(truncate-partial-width-windows nil)
- '(whitespace-style (quote (face tabs tab-mark))))
+ '(whitespace-style (quote (face))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
