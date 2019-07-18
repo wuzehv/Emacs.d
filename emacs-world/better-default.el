@@ -139,6 +139,8 @@
       )
 
 (smooth-scrolling-mode t)
+(setq scroll-conservatively 10)
+(setq scroll-margin 7)
 
 (use-package projectile
   :config
@@ -190,5 +192,7 @@
         ))
 
 (setq-default line-spacing 0.3)
+
+(require 'company-tabnine)
 
 (provide 'better-default)

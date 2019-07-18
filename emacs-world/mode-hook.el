@@ -10,12 +10,12 @@
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (company-mode t)
-  (require 'company-php)
+  ;; (require 'company-php)
   (flycheck-mode)
-  (company-mode t)
-  (ac-php-core-eldoc-setup) ;; enable eldoc
+  ;; (ac-php-core-eldoc-setup) ;; enable eldoc
   (make-local-variable 'company-backends)
-  (add-to-list 'company-backends 'company-ac-php-backend))
+;; (add-to-list 'company-backends 'company-ac-php-backend))
+  (add-to-list 'company-backends #'company-tabnine))
 
 (defun my_sh_mode_setting()
   "php mode setting"

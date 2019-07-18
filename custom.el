@@ -43,6 +43,7 @@
      (slime-repl-mode)
      (slime-connection-list-mode))))
  '(smooth-scroll-margin 10)
+ '(truncate-partial-width-windows nil)
  '(whitespace-style (quote (face tabs tab-mark))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

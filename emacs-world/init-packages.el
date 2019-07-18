@@ -13,6 +13,7 @@
                       evil
                       evil-leader
                       company
+                      company-tabnine
                       hungry-delete
                       php-mode
                       helm
