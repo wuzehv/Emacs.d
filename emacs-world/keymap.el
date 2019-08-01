@@ -1,14 +1,14 @@
 ;; keymap
 (evil-leader/set-key
-  "e" 'open-init-file
+  "e" 'misc/open-init-file
   "ff" 'helm-find-files
-  "fy" 'put-file-name-on-clipboard
+  "fy" 'misc/put-file-name-on-clipboard
   "fr" 'helm-recentf
   "fc" 'recentf-cleanup
   "fs" 'helm-ag-this-file
-  "fd" 'delete-current-file-copy-to-kill-ring
+  "fd" 'misc/delete-current-file-copy-to-kill-ring
   "bb" 'helm-buffers-list
-  "by" 'copy-all-or-region
+  "by" 'misc/copy-all-or-region
   "bk" 'kill-this-buffer
   "w/" 'split-window-right
   "w-" 'split-window-below
@@ -17,11 +17,11 @@
   "pf" 'helm-projectile-find-file
   "pp" 'helm-projectile-switch-project
   "pi" 'projectile-invalidate-cache
-  "TAB" 'switch-to-previous-buffer
+  "TAB" 'misc/switch-to-previous-buffer
   "SPC" 'helm-M-x
   "v" 'er/expand-region
   "jf" 'helm-imenu
-  "rn" 'rename-file-and-buffer
+  "rn" 'misc/rename-file-and-buffer
   "d" 'dired-jump
   "i" 'iedit-mode
   "1" 'winum-select-window-1
@@ -53,7 +53,7 @@
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z")  'helm-select-action))
 
-(global-set-key (kbd "C-M-\\") #'my-indent-region-or-buffer)
+(global-set-key (kbd "C-M-\\") #'misc/indent-region-or-buffer)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-s s") 'magit-status)
 
@@ -65,7 +65,7 @@
 
 (define-key evil-motion-state-map (kbd "C-i") nil)
 
-(evil-define-key 'normal haskell-mode-map "o" 'my_haskell_mode_map)
+(evil-define-key 'normal haskell-mode-map "o" 'misc/haskell-mode-map)
 
 (define-key evil-normal-state-map (kbd "#")
   (lambda () (interactive) (helm-swoop)))

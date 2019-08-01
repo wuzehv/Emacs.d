@@ -19,13 +19,13 @@
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (when (member "微软雅黑" (font-family-list))
-    (my-set-chinese-font "微软雅黑" 18)))
+    (misc/set-chinese-font "微软雅黑" 18)))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Hannotate SC" (font-family-list))
-    (my-set-chinese-font "Hannotate SC")))
+    (misc/set-chinese-font "Hannotate SC")))
  ((string-equal system-type "gnu/linux") ; linux
   (when (member "DejaVu Sans Mono" (font-family-list))
-    (my-set-chinese-font "DejaVu Sans Mono"))))
+    (misc/set-chinese-font "DejaVu Sans Mono"))))
 
 (setq-default linum-format "%4d ")
 
@@ -96,7 +96,7 @@
                            (hungry-delete-mode t)
                            ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
                            (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
-                           (local-set-key (kbd "C-c C-o") 'my-org-open-at-point)))
+                           (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
 
 (setq mode-require-final-newline nil)
 

@@ -10,11 +10,8 @@
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (company-mode t)
-  ;; (require 'company-php)
   (flycheck-mode)
-  ;; (ac-php-core-eldoc-setup) ;; enable eldoc
   (make-local-variable 'company-backends)
-;; (add-to-list 'company-backends 'company-ac-php-backend))
   (add-to-list 'company-backends #'company-tabnine))
 
 (defun my_sh_mode_setting()
@@ -32,7 +29,7 @@
 
 (defun my_c_mode_setting()
   "web mode setting"
-  (local-set-key (kbd "C-c C-c") 'my_c_compile)
+  (local-set-key (kbd "C-c C-c") 'misc/c-compile)
   (setq default-tab-width 4)
   (setq c-default-style "Linux")
   (setq c-basic-offset 4))
@@ -48,7 +45,7 @@
 (add-hook 'c-mode-hook 'my_c_mode_setting)
 
 (add-hook 'helm-minibuffer-set-up-hook
-          'my-helm-hide-minibuffer-maybe)
+          'misc/helm-hide-minibuffer-maybe)
 
 (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                            (evil-emacs-state)))
