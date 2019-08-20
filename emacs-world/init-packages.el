@@ -12,40 +12,48 @@
 (defvar my/packages '(
                       evil
                       evil-leader
+                      evil-surround
+                      evil-nerd-commenter
+
                       company
                       company-tabnine
-                      hungry-delete
-                      php-mode
+                      company-shell
+
                       helm
                       helm-ag
                       helm-projectile
                       helm-swoop
-                      company-php
-                      company-shell
-                      ac-php
+
+                      ;; ui相关
                       monokai-theme
-                      projectile
-                      org-bullets
                       doom-modeline
+                      org-bullets
+
+                      ;; 工程相关
+                      projectile
+                      magit
+
+                      smooth-scrolling
+                      hungry-delete
                       expand-region
-                      yasnippet
-                      evil-surround
-                      evil-nerd-commenter
                       which-key
                       popwin
-                      web-mode
                       disable-mouse
                       iedit
                       use-package
                       winum
-                      smooth-scrolling
-                      magit
                       youdao-dictionary
+
+                      ;; 编程相关
+                      yasnippet
                       flycheck
                       htmlize
                       markdown-mode
+                      php-mode
+                      web-mode
                       lua-mode
                       haskell-mode
+                      go-mode
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

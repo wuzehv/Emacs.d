@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: goinit
+# key: ginit
+# --
+package main
+
+import (
+        "fmt"
+        $1
+)
+
+func main() {
+     $2
+}
