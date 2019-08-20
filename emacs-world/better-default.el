@@ -209,4 +209,6 @@
         company-pseudo-tooltip-frontend
         company-echo-metadata-frontend))
 
+(setq helm-ag-insert-at-point 'symbol)
+
 (provide 'better-default)
