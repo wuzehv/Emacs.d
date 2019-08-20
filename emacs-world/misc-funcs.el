@@ -145,7 +145,6 @@ same directory as the org-buffer and insert a link to this file."
 (dolist (command '(evil-paste-after yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
            (and (not current-prefix-arg)
-                (member major-mode '(php-mode web-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

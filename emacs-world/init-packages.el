@@ -53,6 +53,7 @@
                       web-mode
                       lua-mode
                       haskell-mode
+                      go-mode
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)

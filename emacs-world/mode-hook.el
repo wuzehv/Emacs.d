@@ -3,6 +3,7 @@
   "program setting"
   (display-line-numbers-mode t)
   (whitespace-mode t)
+  (flycheck-mode t)
   (hungry-delete-mode t))
 
 (defun my_php_mode_setting()
@@ -10,13 +11,11 @@
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (company-mode t)
-  (flycheck-mode)
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends #'company-tabnine))
 
 (defun my_sh_mode_setting()
   "php mode setting"
-  (flycheck-mode)
   (company-mode t)
   (require 'company-shell)
   (company-mode t)
