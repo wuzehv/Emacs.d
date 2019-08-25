@@ -4,10 +4,12 @@
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (display-line-numbers-mode t)
-  (whitespace-mode t)
   (flycheck-mode t)
   (hungry-delete-mode t)
   (company-mode t)
+  (projectile-mode t)
+  (helm-projectile-on)
+  (yas-global-mode t)
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends #'company-tabnine))
 

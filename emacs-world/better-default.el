@@ -35,7 +35,9 @@
   :hook (after-init . doom-modeline-init))
 
 ;; better default
-(recentf-mode t)
+(use-package recentf
+  :ensure nil
+  :hook (after-init . recentf-mode))
 
 ;; 取消自动备份文件
 (setq make-backup-files nil)
@@ -141,19 +143,6 @@
 (smooth-scrolling-mode t)
 (setq scroll-conservatively 10)
 (setq scroll-margin 7)
-
-(use-package projectile
-  :config
-  (projectile-global-mode +1))
-
-(use-package helm-projectile
-  :config
-  (helm-projectile-on))
-
-(use-package yasnippet
-  :load-path "~/.emacs.d/snippets"
-  :config
-  (yas-global-mode t))
 
 (global-evil-surround-mode)
 
