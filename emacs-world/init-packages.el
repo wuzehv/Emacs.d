@@ -16,7 +16,6 @@
                       evil-nerd-commenter
 
                       company
-                      company-tabnine
                       company-shell
 
                       helm
