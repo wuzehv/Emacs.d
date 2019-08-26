@@ -9,9 +9,7 @@
   (company-mode t)
   (projectile-mode t)
   (helm-projectile-on)
-  (yas-global-mode t)
-  (make-local-variable 'company-backends)
-  (add-to-list 'company-backends #'company-tabnine))
+  (yas-global-mode t))
 
 (defun my_c_mode_setting()
   "c mode setting"
