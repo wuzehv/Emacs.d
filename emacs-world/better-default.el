@@ -182,8 +182,6 @@
 
 (setq-default line-spacing 0.3)
 
-(require 'company-tabnine)
-
 ;; Trigger completion immediately.
 (setq company-idle-delay 0)
 
