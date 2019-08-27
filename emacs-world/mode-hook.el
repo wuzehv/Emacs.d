@@ -27,4 +27,6 @@
 (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                            (evil-emacs-state)))
 
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 (provide 'mode-hook)

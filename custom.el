@@ -16,6 +16,7 @@
  '(display-line-numbers-width nil)
  '(display-line-numbers-width-start nil)
  '(evil-leader/leader "SPC")
+ '(gofmt-show-errors (quote echo))
  '(indent-tabs-mode nil)
  '(org-image-actual-width 500)
  '(popwin:special-display-config
