@@ -1,35 +1,43 @@
 ;; keymap
 (evil-leader/set-key
+  ;; 常用
   "e" 'misc/open-init-file
+  "SPC" 'helm-buffers-list
+  "TAB" 'misc/switch-to-previous-buffer
+  "r" 'helm-recentf
+
+  ;; file
   "ff" 'helm-find-files
   "fy" 'misc/put-file-name-on-clipboard
-  "fr" 'helm-recentf
-  "fc" 'recentf-cleanup
   "fs" 'helm-ag-this-file
   "fd" 'misc/delete-current-file-copy-to-kill-ring
-  "bb" 'helm-buffers-list
+  "fr" 'misc/rename-file-and-buffer
+
+  ;; buffer
   "by" 'misc/copy-all-or-region
   "bk" 'kill-this-buffer
-  "w/" 'split-window-right
-  "w-" 'split-window-below
-  "wm" 'delete-other-windows
-  "sa" 'helm-projectile-ag
+
+  ;; project
   "pf" 'helm-projectile-find-file
   "pp" 'helm-projectile-switch-project
   "pi" 'projectile-invalidate-cache
-  "TAB" 'misc/switch-to-previous-buffer
-  "SPC" 'helm-M-x
+  "ps" 'helm-projectile-ag
+
+  "x" 'helm-M-x
   "v" 'er/expand-region
   "jf" 'helm-imenu
-  "rn" 'misc/rename-file-and-buffer
   "d" 'dired-jump
   "i" 'iedit-mode
+  "fc" 'recentf-cleanup
+
+  ;; window
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  "wm" 'delete-other-windows
   "1" 'winum-select-window-1
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
-  "gd" 'ac-php-find-symbol-at-point
-  "gr" 'ac-php-location-stack-back
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
