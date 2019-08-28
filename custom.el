@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-notify-method (quote bully))
+ '(Man-sed-command "sed")
  '(auto-save-default nil)
  '(auto-save-timeout 30)
  '(auto-save-visited-interval 1)

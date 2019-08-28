@@ -198,4 +198,7 @@
 
 (setq helm-ag-insert-at-point 'symbol)
 
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 (provide 'better-default)

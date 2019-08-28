@@ -42,6 +42,7 @@
                       use-package
                       winum
                       youdao-dictionary
+					  exec-path-from-shell
 
                       ;; 编程相关
                       yasnippet
