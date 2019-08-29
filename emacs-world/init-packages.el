@@ -17,6 +17,7 @@
 
                       company
                       company-shell
+                      company-go
 
                       helm
                       helm-ag
