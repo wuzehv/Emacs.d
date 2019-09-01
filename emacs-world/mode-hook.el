@@ -4,7 +4,6 @@
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
   (display-line-numbers-mode t)
-  (flycheck-mode t)
   (hungry-delete-mode t)
   (company-mode t)
   (projectile-mode t)

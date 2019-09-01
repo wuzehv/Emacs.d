@@ -47,7 +47,6 @@
 
                       ;; 编程相关
                       yasnippet
-                      flycheck
                       htmlize
                       markdown-mode
                       php-mode
