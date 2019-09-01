@@ -51,18 +51,19 @@
 
 (show-paren-mode t)
 
+;; dired
+(require 'dired-x)
+
 (setq dired-recursive-deletes 'always)
 (setq dired-recursive-copies 'always)
 
 (put 'dired-find-alternate-file 'disabled nil)
 
-(require 'dired-x)
-
-(save-place-mode t)
-
 ;; 延迟加载
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+(save-place-mode t)
 
 (auto-save-visited-mode t)
 
