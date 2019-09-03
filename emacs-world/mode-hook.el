@@ -1,5 +1,5 @@
 ;; mode
-(defun my_prog_mode_setting()
+(defun hook/prog-mode-setting()
   "program setting"
   (setq indent-tabs-mode t)
   (setq-default tab-width 4)
@@ -10,15 +10,28 @@
   (helm-projectile-on)
   (yas-global-mode t))
 
-(defun my_c_mode_setting()
+(defun hook/c-mode-setting()
   "c mode setting"
   (local-set-key (kbd "C-c C-c") 'misc/c-compile)
   (setq c-default-style "Linux")
   (setq c-basic-offset 4))
 
-(add-hook 'prog-mode-hook 'my_prog_mode_setting)
+(defun hook/go-mode-setting()
+  "go mode setting"
+  (local-set-key (kbd "C-c C-c") 'misc/go-compile))
 
-(add-hook 'c-mode-hook 'my_c_mode_setting)
+(defun hook/python-mode-setting()
+  "python mode setting"
+  (setq indent-tabs-mode nil)
+  (local-set-key (kbd "C-c C-c") 'misc/python-compile))
+
+(add-hook 'prog-mode-hook 'hook/prog-mode-setting)
+
+(add-hook 'c-mode-hook 'hook/c-mode-setting)
+
+(add-hook 'go-mode-hook 'hook/go-mode-setting)
+
+(add-hook 'python-mode-hook 'hook/python-mode-setting)
 
 (add-hook 'helm-minibuffer-set-up-hook
           'misc/helm-hide-minibuffer-maybe)
