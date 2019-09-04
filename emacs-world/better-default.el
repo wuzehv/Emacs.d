@@ -10,8 +10,17 @@
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; 关闭启动帮助画面
-(setq inhibit-splash-screen t)
+;; 启动界面
+(use-package dashboard
+  :ensure t
+  :config
+  (progn
+	(dashboard-setup-startup-hook)
+	(setq dashboard-banner-logo-title "Welcome to Emacs World!")
+	(setq dashboard-startup-banner "~/.emacs.d/emacs-world/lq.png")
+	(setq dashboard-center-content t)
+	(setq dashboard-show-shortcuts nil)
+	(setq dashboard-items '((recents . 5)))))
 
 (set-face-attribute 'default nil :font "Source code pro 16")
 

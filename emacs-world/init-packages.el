@@ -28,6 +28,7 @@
                       monokai-theme
                       doom-modeline
                       org-bullets
+					  dashboard
 
                       ;; 工程相关
                       projectile

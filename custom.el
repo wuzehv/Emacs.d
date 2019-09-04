@@ -23,6 +23,7 @@
  '(popwin:special-display-config
    (quote
 	((Man-mode)
+	 (godoc-mode)
 	 ("*Miniedit Help*" :noselect t)
 	 (help-mode)
 	 (completion-list-mode :noselect t)
