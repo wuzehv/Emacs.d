@@ -16,10 +16,13 @@
   :config
   (progn
 	(dashboard-setup-startup-hook)
+	(setq dashboard-set-heading-icons t)
+	(setq dashboard-set-file-icons t)
 	(setq dashboard-banner-logo-title "Welcome to Emacs World!")
 	(setq dashboard-startup-banner "~/.emacs.d/banner.png")
 	(setq dashboard-center-content t)
 	(setq dashboard-show-shortcuts nil)
+	(setq dashboard-footer "by wuzehui")
 	(setq dashboard-items '((recents . 5)))))
 
 (set-face-attribute 'default nil :font "Source code pro 16")
