@@ -36,8 +36,8 @@
   (when (member "Hannotate SC" (font-family-list))
     (misc/set-chinese-font "Hannotate SC")))
  ((string-equal system-type "gnu/linux") ; linux
-  (when (member "DejaVu Sans Mono" (font-family-list))
-    (misc/set-chinese-font "DejaVu Sans Mono"))))
+  (when (member "Source code pro" (font-family-list))
+    (misc/set-chinese-font "Source code pro"))))
 
 (setq-default linum-format "%4d ")
 
