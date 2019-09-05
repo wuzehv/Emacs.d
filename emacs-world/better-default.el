@@ -17,7 +17,7 @@
   (progn
 	(dashboard-setup-startup-hook)
 	(setq dashboard-banner-logo-title "Welcome to Emacs World!")
-	(setq dashboard-startup-banner "~/.emacs.d/emacs-world/lq.png")
+	(setq dashboard-startup-banner "~/.emacs.d/banner.png")
 	(setq dashboard-center-content t)
 	(setq dashboard-show-shortcuts nil)
 	(setq dashboard-items '((recents . 5)))))
