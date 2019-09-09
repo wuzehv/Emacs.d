@@ -8,28 +8,21 @@
   (company-mode t)
   (projectile-mode t)
   (helm-projectile-on)
-  (yas-global-mode t))
+  (yas-global-mode t)
+  (local-set-key (kbd "C-c C-c") 'misc/compile-and-run))
 
 (defun hook/c-mode-setting()
   "c mode setting"
-  (local-set-key (kbd "C-c C-c") 'misc/c-compile)
   (setq c-default-style "Linux")
   (setq c-basic-offset 4))
 
-(defun hook/go-mode-setting()
-  "go mode setting"
-  (local-set-key (kbd "C-c C-c") 'misc/go-compile))
-
 (defun hook/python-mode-setting()
   "python mode setting"
-  (setq indent-tabs-mode nil)
-  (local-set-key (kbd "C-c C-c") 'misc/python-compile))
+  (setq indent-tabs-mode nil))
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 
 (add-hook 'c-mode-hook 'hook/c-mode-setting)
-
-(add-hook 'go-mode-hook 'hook/go-mode-setting)
 
 (add-hook 'python-mode-hook 'hook/python-mode-setting)
 

@@ -84,26 +84,19 @@ Version 2015-08-22"
                      `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
-(defun misc/c-compile()
-  "auto compile c code && run"
+(defun misc/compile-and-run()
+  "compile && run"
   (interactive)
-  (save-buffer)
-  (compile (format "gcc %s && ./a.out" (buffer-file-name)))
-  (switch-to-buffer-other-window "*compilation*"))
-
-(defun misc/go-compile()
-  "auto compile go code && run"
-  (interactive)
-  (save-buffer)
-  (compile (format "go run %s" (buffer-file-name)))
-  (switch-to-buffer-other-window "*compilation*"))
-
-(defun misc/python-compile()
-  "auto compile python code && run"
-  (interactive)
-  (save-buffer)
-  (compile (format "python3 %s" (buffer-file-name)))
-  (switch-to-buffer-other-window "*compilation*"))
+  (if (memq major-mode '(c-mode python-mode go-mode))
+	  (progn
+		(save-buffer)
+		(if (string= major-mode "c-mode")
+			(compile (format "gcc %s && ./a.out" (buffer-file-name))))
+		(if (string= major-mode "python-mode")
+			(compile (format "python3 %s" (buffer-file-name))))
+		(if (string= major-mode "go-mode")
+			(compile (format "go run %s" (buffer-file-name))))
+		(switch-to-buffer-other-window "*compilation*"))))
 
 (defun misc/haskell-mode-map()
   "fix evil normal 状态下 haskell mode \"o\"键 缩进问题"
