@@ -1,5 +1,5 @@
 ;; org
-(require 'org-bullets)
+(use-package org-bullets)
 
 (setq org-fontify-done-headline t)
 
@@ -81,6 +81,6 @@
 
 (add-hook 'org-agenda-finalize-hook #'misc/org-agenda-time-grid-spacing)
 
-(require 'org-protocol)
+(use-package org-protocol)
 
 (provide 'better-org)

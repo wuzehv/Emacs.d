@@ -33,10 +33,7 @@
     (misc/set-chinese-font "微软雅黑" 18)))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Hannotate SC" (font-family-list))
-    (misc/set-chinese-font "Hannotate SC")))
- ((string-equal system-type "gnu/linux") ; linux
-  (when (member "Source code pro" (font-family-list))
-    (misc/set-chinese-font "Source code pro"))))
+    (misc/set-chinese-font "Hannotate SC"))))
 
 (setq-default linum-format "%4d ")
 
@@ -63,7 +60,7 @@
 (show-paren-mode t)
 
 ;; dired
-(require 'dired-x)
+(use-package dired-x)
 
 (setq dired-recursive-deletes 'always)
 (setq dired-recursive-copies 'always)
@@ -100,7 +97,6 @@
 
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 (push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
-
 
 (winum-mode)
 
