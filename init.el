@@ -14,6 +14,8 @@
 
 (require 'misc-funcs)
 
+(require 'better-org)
+
 (require 'keymap)
 
 ;; custom

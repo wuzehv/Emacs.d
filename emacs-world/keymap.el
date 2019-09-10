@@ -38,6 +38,11 @@
   "2" 'winum-select-window-2
   "3" 'winum-select-window-3
   "4" 'winum-select-window-4
+
+  ;; org
+  "oc" 'org-capture
+  "or" 'org-archive-subtree
+  "oa" 'org-agenda
   )
 
 (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
@@ -77,5 +82,7 @@
 
 (define-key evil-normal-state-map (kbd "#")
   (lambda () (interactive) (helm-swoop)))
+
+(global-set-key (kbd "C-c c") 'org-capture)
 
 (provide 'keymap)

@@ -92,53 +92,15 @@
 (modify-syntax-entry ?_ "w")
 (modify-syntax-entry ?- "w")
 
-;; org
-(require 'org-bullets)
-
-(setq org-fontify-done-headline t)
-
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "DOING(i)" "|" "DONE(d)" "|" "CANCELLED(c)")))
-
-(setq org-todo-keyword-faces
-      '(("DOING" . "red")))
-
-(add-hook 'org-mode-hook (lambda ()
-                           (setq truncate-lines nil)
-                           (org-display-inline-images)
-                           (org-bullets-mode t)
-                           (hungry-delete-mode t)
-                           ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
-                           (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
-                           (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
-
 (setq mode-require-final-newline nil)
-
-(setq org-confirm-babel-evaluate nil)
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (php . t)
-   (shell . t)))
-
-(setq org-emphasis-alist
-      (cons '("+" '(:strike-through t :foreground "gray"))
-            (delete* "+" org-emphasis-alist :key 'car :test 'equal)))
-
-(setq org-emphasis-alist
-      (cons '("*" '(:emphasis t :foreground "blue"))
-            (delete* "*" org-emphasis-alist :key 'car :test 'equal)))
-
-(setq org-emphasis-alist
-      (cons '("~" '(:emphasis t :foreground "red"))
-            (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
-
-(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
-(push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
 
 (setq auto-revert-check-vc-info t)
 
 (require 'aweshell)
+
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+(push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
+
 
 (winum-mode)
 
@@ -171,26 +133,6 @@
   :mode ("\\.tpl.php?\\'" . web-mode))
 
 (setq url-automatic-caching t)
-
-;; agenda
-(setq org-agenda-files '("~/.agenda"))
-
-(setq org-agenda-custom-commands
-      '(
-        ("w" . "任务安排")
-        ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-        ("wb" "重要且不紧急的任务" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
-        ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
-        ("W" "Weekly Review"
-         ((stuck "") ;; review stuck projects as designated by org-stuck-projects
-          (tags-todo "project")
-          (tags-todo "daily")
-          (tags-todo "weekly")
-          (tags-todo "school")
-          (tags-todo "code")
-          (tags-todo "theory")
-          ))
-        ))
 
 (setq-default line-spacing 0.3)
 
