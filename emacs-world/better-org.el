@@ -41,8 +41,9 @@
             (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
 
 ;; agenda
-(setq org-agenda-files '("~/.agenda"))
-(setq org-default-notes-file "~/.agenda/todo.org")
+(setq misc/org-agenda-base-dir "~/.agenda")
+(setq org-agenda-files '(misc/org-agenda-base-dir))
+(setq org-default-notes-file (concat misc/org-agenda-base-dir "/todo.org"))
 
 (setq org-agenda-custom-commands
       '(
@@ -71,8 +72,15 @@
 		 "Ideas for everything"
 		 entry
 		 (file+headline org-default-notes-file "Ideas")
+		 "* TODO %? %T\n")
+		("o"
+		 "Others"
+		 entry
+		 (file "~/.agenda/others.org")
 		 "* TODO %? %T\n")))
 
 (add-hook 'org-agenda-finalize-hook #'misc/org-agenda-time-grid-spacing)
+
+(require 'org-protocol)
 
 (provide 'better-org)

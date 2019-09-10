@@ -1,5 +1,3 @@
-(package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/emacs-world")
 
 ;; 自动添加private下子模块目录

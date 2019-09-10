@@ -9,7 +9,7 @@
 (require 'cl)
 
 ;; Add Packages
-(defvar my/packages '(
+(defvar misc/packages '(
                       evil
                       evil-leader
                       evil-surround
@@ -57,17 +57,17 @@
                       go-mode
                       ) "Default packages")
 
-(setq package-selected-packages my/packages)
+(setq package-selected-packages misc/packages)
 
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
+(defun misc/packages-installed-p ()
+  (loop for pkg in misc/packages
         when (not (package-installed-p pkg)) do (return nil)
         finally (return t)))
 
-(unless (my/packages-installed-p)
+(unless (misc/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
-  (dolist (pkg my/packages)
+  (dolist (pkg misc/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
