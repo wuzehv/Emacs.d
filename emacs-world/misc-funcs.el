@@ -87,7 +87,7 @@ Version 2015-08-22"
 (defun misc/compile-and-run()
   "compile && run"
   (interactive)
-  (if (memq major-mode '(c-mode python-mode go-mode))
+  (if (memq major-mode '(c-mode python-mode go-mode php-mode))
 	  (progn
 		(save-buffer)
 		(if (string= major-mode "c-mode")
@@ -96,6 +96,8 @@ Version 2015-08-22"
 			(compile (format "python3 %s" (buffer-file-name))))
 		(if (string= major-mode "go-mode")
 			(compile (format "go run %s" (buffer-file-name))))
+		(if (string= major-mode "php-mode")
+			(compile (format "php %s" (buffer-file-name))))
 		(switch-to-buffer-other-window "*compilation*"))))
 
 (defun misc/haskell-mode-map()
