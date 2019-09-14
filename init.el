@@ -6,11 +6,11 @@
 
 (require 'init-packages)
 
-(require 'better-default)
+(require 'misc-funcs)
 
 (require 'mode-hook)
 
-(require 'misc-funcs)
+(require 'better-default)
 
 (require 'better-org)
 
