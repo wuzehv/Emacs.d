@@ -16,7 +16,6 @@
                       evil-nerd-commenter
 
                       company
-                      company-shell
                       company-go
 
                       helm
@@ -28,7 +27,7 @@
                       monokai-theme
                       doom-modeline
                       org-bullets
-					  dashboard
+                      dashboard
 
                       ;; 工程相关
                       projectile
@@ -44,11 +43,10 @@
                       use-package
                       winum
                       youdao-dictionary
-					  exec-path-from-shell
+                      exec-path-from-shell
 
                       ;; 编程相关
                       yasnippet
-                      htmlize
                       markdown-mode
                       php-mode
                       web-mode
