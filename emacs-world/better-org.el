@@ -81,6 +81,8 @@
 
 (add-hook 'org-agenda-finalize-hook #'misc/org-agenda-time-grid-spacing)
 
+(setq org-export-backends (quote (ascii html icalendar latex md)))
+
 (use-package org-protocol)
 
 (provide 'better-org)

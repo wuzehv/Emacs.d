@@ -121,7 +121,7 @@ Version 2015-08-22"
 (defun misc/org-screenshot (basename)
   "Take a screenshot into a time stamped unique-named file in the
 same directory as the org-buffer and insert a link to this file."
-  (interactive "sScreenshot name: ")
+  (interactive "Screenshot name: ")
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
   (setq filename
