@@ -87,7 +87,7 @@ Version 2015-08-22"
 (defun misc/compile-and-run()
   "compile && run"
   (interactive)
-  (if (memq major-mode '(c-mode python-mode go-mode php-mode))
+  (if (memq major-mode '(c-mode python-mode go-mode php-mode sh-mode))
 	  (progn
 		(save-buffer)
 		(if (string= major-mode "c-mode")
@@ -98,6 +98,8 @@ Version 2015-08-22"
 			(compile (format "go run %s" (buffer-file-name))))
 		(if (string= major-mode "php-mode")
 			(compile (format "php %s" (buffer-file-name))))
+		(if (string= major-mode "sh-mode")
+			(compile (format "/bin/bash %s" (buffer-file-name))))
 		(switch-to-buffer-other-window "*compilation*"))))
 
 (defun misc/haskell-mode-map()
@@ -121,7 +123,7 @@ Version 2015-08-22"
 (defun misc/org-screenshot (basename)
   "Take a screenshot into a time stamped unique-named file in the
 same directory as the org-buffer and insert a link to this file."
-  (interactive "Screenshot name: ")
+  (interactive "sScreenshot name: ")
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
   (setq filename

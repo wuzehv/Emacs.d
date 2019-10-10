@@ -32,10 +32,12 @@
 (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                            (evil-emacs-state)))
 
-(add-hook 'before-save-hook 'gofmt-before-save)
-
-(add-hook 'go-mode-hook (lambda ()
-						  (set (make-local-variable 'company-backends) '(company-go))
-						  (company-mode)))
+(use-package go-mode
+  :ensure t
+  :config
+  (add-hook 'go-mode-hook (lambda ()
+							(set (make-local-variable 'company-backends) '(company-go))
+							(company-mode)))
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 (provide 'mode-hook)

@@ -6,13 +6,13 @@
 
 (require 'init-packages)
 
+(require 'init-default)
+
 (require 'misc-funcs)
 
-(require 'mode-hook)
+;; (require 'mode-hook)
 
-(require 'better-default)
-
-(require 'better-org)
+(require 'init-org)
 
 (require 'keymap)
 

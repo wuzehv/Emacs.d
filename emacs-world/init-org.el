@@ -1,5 +1,9 @@
 ;; org
-(use-package org-bullets)
+(use-package org-bullets
+  :ensure t
+  :init
+  ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
+  (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌")))
 
 (setq org-fontify-done-headline t)
 
@@ -16,8 +20,6 @@
                            (org-display-inline-images)
                            (org-bullets-mode t)
                            (hungry-delete-mode t)
-                           ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
-                           (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
                            (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
 
 (setq org-confirm-babel-evaluate nil)
@@ -85,4 +87,4 @@
 
 (use-package org-protocol)
 
-(provide 'better-org)
+(provide 'init-org)
