@@ -10,11 +10,7 @@
 
 (require 'misc-funcs)
 
-;; (require 'mode-hook)
-
 (require 'init-org)
-
-(require 'keymap)
 
 ;; custom
 (setq custom-file (expand-file-name "custom.el" "~/.emacs.d"))

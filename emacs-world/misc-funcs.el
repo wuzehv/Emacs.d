@@ -182,4 +182,16 @@ same directory as the org-buffer and insert a link to this file."
             (overlay-put ov 'line-height line-height)
             (overlay-put ov 'line-spacing (1- line-height))))))))
 
+(defun hook/prog-mode-setting()
+  "program setting"
+  (setq indent-tabs-mode t)
+  (setq-default tab-width 4)
+  (display-line-numbers-mode t)
+  (hungry-delete-mode t)
+  (company-mode t)
+  (projectile-mode t)
+  (helm-projectile-on)
+  (yas-global-mode t)
+  (local-set-key (kbd "C-c C-c") 'misc/compile-and-run))
+
 (provide 'misc-funcs)

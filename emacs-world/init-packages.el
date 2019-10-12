@@ -9,27 +9,11 @@
 (require 'use-package)
 
 (use-package evil
-  :ensure t
-  :defer .1
-  :config
-  (evil-mode)
-  ;; insert mode下使用emacs键位
-  ;; 移除insert本身的键位
-  (setcdr evil-insert-state-map nil)
-  ;; 绑定emacs到insert
-  (define-key evil-insert-state-map
-    (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
-  ;; esc切换回insert
-  (define-key evil-insert-state-map [escape] 'evil-normal-state)
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode))
+  :init
+  ;; 这个必须放在evil-mode生效之前
   (use-package evil-leader
     :after evil
-    :ensure t
-    :config
-    (global-evil-leader-mode)
+    :init
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
@@ -75,7 +59,26 @@
       "or" 'org-archive-subtree
       "oa" 'org-agenda
       )
-    )
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+  :ensure t
+  :defer .1
+  :config
+  (progn
+    (evil-mode)
+    ;; insert mode下使用emacs键位
+    ;; 移除insert本身的键位
+    (setcdr evil-insert-state-map nil)
+    ;; 绑定emacs到insert
+    (define-key evil-insert-state-map
+      (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+    ;; esc切换回insert
+    (define-key evil-insert-state-map [escape] 'evil-normal-state))
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
   (use-package evil-nerd-commenter
     :after evil
     :ensure t
@@ -143,11 +146,13 @@
   (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
   (global-set-key (kbd "M-x") 'helm-M-x)
   :config
-  (with-eval-after-load 'helm
+  (progn
     (define-key helm-map [escape] 'helm-keyboard-quit)
     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-z")  'helm-select-action))
+    (define-key helm-map (kbd "C-z")  'helm-select-action)
+    (add-hook 'helm-minibuffer-set-up-hook
+              'misc/helm-hide-minibuffer-maybe))
   (use-package helm-ag
     :ensure t)
   (use-package helm-projectile
@@ -200,5 +205,44 @@
   :ensure t
   :config
   (load-theme 'monokai t))
+
+(use-package prog-mode
+  :ensure nil
+  :config
+  (add-hook 'prog-mode-hook 'hook/prog-mode-setting))
+
+(add-hook 'c-mode-hook #'(lambda()
+						   (setq c-default-style "Linux")
+						   (setq c-basic-offset 4)))
+
+(add-hook 'python-mode-hook #'(lambda ()
+								(setq indent-tabs-mode nil)))
+
+(use-package youdao-dictionary
+  :ensure t
+  :config
+  (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
+                                             (evil-emacs-state))))
+
+(use-package go
+  :ensure t
+  :config
+  ;; :hook prog-mode
+  (add-hook 'go-mode-hook (lambda ()
+                            (set (make-local-variable 'company-backends) '(company-go))
+                            (company-mode)))
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(global-set-key (kbd "C-M-\\") #'misc/indent-region-or-buffer)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "M-s s") 'magit-status)
+
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+(global-set-key (kbd "C-c t") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "C-s") 'helm-swoop)
+
+(global-set-key (kbd "C-c C-v") 'browse-url-of-buffer)
+
+(global-set-key (kbd "C-c c") 'org-capture)
 
 (provide 'init-packages)
