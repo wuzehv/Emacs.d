@@ -44,6 +44,7 @@
       "d" 'dired-jump
       "i" 'iedit-mode
       "fc" 'recentf-cleanup
+      "jc" 'ace-jump-char-mode
 
       ;; window
       "w/" 'split-window-right
@@ -206,17 +207,13 @@
   :config
   (load-theme 'monokai t))
 
-(use-package prog-mode
-  :ensure nil
-  :config
-  (add-hook 'prog-mode-hook 'hook/prog-mode-setting))
-
+(add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()
-						   (setq c-default-style "Linux")
-						   (setq c-basic-offset 4)))
+                           (setq c-default-style "Linux")
+                           (setq c-basic-offset 4)))
 
 (add-hook 'python-mode-hook #'(lambda ()
-								(setq indent-tabs-mode nil)))
+                                (setq indent-tabs-mode nil)))
 
 (use-package youdao-dictionary
   :ensure t
@@ -229,15 +226,35 @@
   :hook (go-mode . lsp)
   :commands lsp)
 
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+
 (use-package company-lsp
   :ensure t)
 
-(use-package go
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
+(use-package go-mode
   :ensure t
   :config
   (add-hook 'go-mode-hook (lambda ()
                             (set (make-local-variable 'company-lsp) '(company-go))
                             (company-mode)))
   (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package ace-jump-mode
+  :ensure t)
+
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode 1))
+
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
 
 (provide 'init-packages)
