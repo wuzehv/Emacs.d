@@ -11,3 +11,4 @@ url
 *.elc
 transient
 bookmarks
+.lsp*

@@ -1,3 +1,0 @@
-;; mode
-
-(provide 'mode-hook)
