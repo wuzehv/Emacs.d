@@ -103,9 +103,6 @@
     (setq dashboard-footer "by wuzehui")
     (setq dashboard-items '((recents . 5)))))
 
-(use-package lsp-mode
-  :ensure t)
-
 (use-package doom-modeline
   :ensure t
   :defer t
@@ -237,5 +234,8 @@
   :ensure t
   :config
   (global-hungry-delete-mode))
+
+(use-package lua-mode
+  :ensure t)
 
 (provide 'init-packages)

@@ -75,6 +75,11 @@
 		 entry
 		 (file+headline org-default-notes-file "Ideas")
 		 "* TODO %? %T\n")
+		("p"
+		 "Protocol"
+		 entry
+		 (file+headline org-default-notes-file "Protocol")
+		 "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t)
 		("o"
 		 "Others"
 		 entry
