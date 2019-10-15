@@ -221,28 +221,9 @@
   (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
                                              (evil-emacs-state))))
 
-(use-package lsp-mode
-  :ensure t
-  :hook (go-mode . lsp)
-  :commands lsp)
-
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode)
-
-(use-package company-lsp
-  :ensure t)
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
 (use-package go-mode
   :ensure t
   :config
-  (add-hook 'go-mode-hook (lambda ()
-                            (set (make-local-variable 'company-lsp) '(company-go))
-                            (company-mode)))
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package ace-jump-mode

@@ -127,8 +127,7 @@ same directory as the org-buffer and insert a link to this file."
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
   (setq filename
-        (concat (file-name-directory (buffer-file-name))
-                "imgs/"
+        (concat "./imgs/"
                 (file-name-base (buffer-file-name))
                 "_"
                 basename
