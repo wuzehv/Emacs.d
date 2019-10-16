@@ -238,4 +238,13 @@
 (use-package lua-mode
   :ensure t)
 
+(use-package expand-region
+  :ensure t)
+
+(use-package php-mode
+  :ensure t)
+
+(use-package ob-php
+  :ensure nil)
+
 (provide 'init-packages)

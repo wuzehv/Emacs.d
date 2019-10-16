@@ -54,6 +54,6 @@
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 (push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
 
-(setq-default line-spacing 0.3)
+(setq-default line-spacing 0.4)
 
 (provide 'init-default)

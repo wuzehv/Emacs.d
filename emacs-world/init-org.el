@@ -15,6 +15,8 @@
 
 (setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
 
+(setq org-indirect-buffer-display 'current-window)
+
 (add-hook 'org-mode-hook (lambda ()
                            (setq truncate-lines nil)
                            (org-display-inline-images)
