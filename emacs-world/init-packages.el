@@ -247,4 +247,7 @@
 (use-package ob-php
   :ensure nil)
 
+(use-package htmlize
+  :ensure t)
+
 (provide 'init-packages)
