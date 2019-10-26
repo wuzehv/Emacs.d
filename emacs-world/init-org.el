@@ -14,50 +14,19 @@
 (use-package ob-go
   :ensure t)
 
-(setq org-fontify-done-headline t)
+(setq org-fontify-done-headline t
+      org-todo-keywords
+      '((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
+	  org-todo-keyword-faces
+      '(("DOING" . "red"))
+	  org-indirect-buffer-display 'current-window
+	  org-confirm-babel-evaluate nil
+	  org-export-backends (quote (ascii html icalendar latex md))
+	  ;; 不显示样式两边的符号
+	  org-hide-emphasis-markers t
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)")))
-
-(setq org-todo-keyword-faces
-      '(("DOING" . "red")))
-
-(setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
-
-(setq org-indirect-buffer-display 'current-window)
-
-(add-hook 'org-mode-hook (lambda ()
-                           (setq truncate-lines nil)
-                           (org-display-inline-images)
-                           (org-bullets-mode t)
-                           (hungry-delete-mode t)
-                           (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
-
-(setq org-confirm-babel-evaluate nil)
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (php . t)
-   (go . t)
-   (shell . t)))
-
-;; 不显示样式两边的符号
-(setq org-hide-emphasis-markers t)
-
-;; org样式
-(setq org-emphasis-alist
-      (cons '("+" '(:strike-through t :foreground "gray"))
-            (delete* "+" org-emphasis-alist :key 'car :test 'equal)))
-
-(setq org-emphasis-alist
-      (cons '("*" '(:emphasis t :foreground "blue"))
-            (delete* "*" org-emphasis-alist :key 'car :test 'equal)))
-
-(setq org-emphasis-alist
-      (cons '("~" '(:emphasis t :foreground "red"))
-            (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
-
-(setq org-capture-templates
+	  ;; catture
+	  org-capture-templates
       '(("t"
          "Todo list item"
          entry
@@ -77,9 +46,36 @@
 		 "Others"
 		 entry
 		 (file "~/.agenda/others.org")
-		 "* TODO %? %T\n")))
+		 "* TODO %? %T\n"))
 
-(setq org-export-backends (quote (ascii html icalendar latex md)))
+	  ;; 样式
+	  org-emphasis-alist
+      (cons '("+" '(:strike-through t :foreground "gray"))
+            (delete* "+" org-emphasis-alist :key 'car :test 'equal))
+
+	  org-emphasis-alist
+      (cons '("*" '(:emphasis t :foreground "blue"))
+            (delete* "*" org-emphasis-alist :key 'car :test 'equal))
+
+	  org-emphasis-alist
+      (cons '("~" '(:emphasis t :foreground "red"))
+            (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
+
+(setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
+
+(add-hook 'org-mode-hook (lambda ()
+                           (setq truncate-lines nil)
+                           (org-display-inline-images)
+                           (org-bullets-mode t)
+                           (hungry-delete-mode t)
+                           (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (php . t)
+   (go . t)
+   (shell . t)))
 
 (use-package org-protocol)
 
