@@ -5,6 +5,9 @@
   ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
   (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌")))
 
+(use-package ob-go
+  :ensure t)
+
 (setq org-fontify-done-headline t)
 
 (setq org-todo-keywords
@@ -29,6 +32,7 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (php . t)
+   (go . t)
    (shell . t)))
 
 ;; org样式

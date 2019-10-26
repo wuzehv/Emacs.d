@@ -250,4 +250,9 @@
 (use-package htmlize
   :ensure t)
 
+(use-package window-numbering
+  :ensure t
+  :config
+  (window-numbering-mode 1))
+
 (provide 'init-packages)
