@@ -103,11 +103,6 @@
     (setq dashboard-footer "by wuzehui")
     (setq dashboard-items '((recents . 5)))))
 
-(use-package doom-modeline
-  :ensure t
-  :defer t
-  :hook (after-init . doom-modeline-init))
-
 ;; better default
 (use-package recentf
   :ensure nil
@@ -258,5 +253,11 @@
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package spaceline
+  :ensure t
+  :config
+  (spaceline-spacemacs-theme)
+  (spaceline-toggle-minor-modes-off))
 
 (provide 'init-packages)
