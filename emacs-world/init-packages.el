@@ -50,10 +50,10 @@
       "w/" 'split-window-right
       "w-" 'split-window-below
       "wm" 'delete-other-windows
-      "1" 'winum-select-window-1
-      "2" 'winum-select-window-2
-      "3" 'winum-select-window-3
-      "4" 'winum-select-window-4
+      "1" 'select-window-1
+      "2" 'select-window-2
+      "3" 'select-window-3
+      "4" 'select-window-4
 
       ;; org
       "oc" 'org-capture
@@ -120,9 +120,6 @@
 
 (use-package aweshell
   :ensure nil)
-
-(use-package winum
-  :ensure t)
 
 (use-package helm
   :after evil
@@ -256,6 +253,8 @@
 
 (use-package spaceline
   :ensure t
+  :init
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   :config
   (spaceline-spacemacs-theme)
   (spaceline-toggle-minor-modes-off))
