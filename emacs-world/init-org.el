@@ -1,4 +1,10 @@
 ;; org
+;; 不需要添加空格就支持样式；https://emacs-china.org/t/org-mode/597
+(setcar (nthcdr 0 org-emphasis-regexp-components) " \t('\"{[:nonascii:]")
+(setcar (nthcdr 1 org-emphasis-regexp-components) "- \t.,:!?;'\")}\\[[:nonascii:]")
+(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+(org-element-update-syntax)
+
 (use-package org-bullets
   :ensure t
   :init
@@ -35,6 +41,9 @@
    (go . t)
    (shell . t)))
 
+;; 不显示样式两边的符号
+(setq org-hide-emphasis-markers t)
+
 ;; org样式
 (setq org-emphasis-alist
       (cons '("+" '(:strike-through t :foreground "gray"))
@@ -47,28 +56,6 @@
 (setq org-emphasis-alist
       (cons '("~" '(:emphasis t :foreground "red"))
             (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
-
-;; agenda
-(setq misc/org-agenda-base-dir "~/.agenda")
-(setq org-agenda-files '(misc/org-agenda-base-dir))
-(setq org-default-notes-file (concat misc/org-agenda-base-dir "/todo.org"))
-
-(setq org-agenda-custom-commands
-      '(
-        ("w" . "任务安排")
-        ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-        ("wb" "重要且不紧急的任务" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
-        ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
-        ("W" "Weekly Review"
-         ((stuck "") ;; review stuck projects as designated by org-stuck-projects
-          (tags-todo "project")
-          (tags-todo "daily")
-          (tags-todo "weekly")
-          (tags-todo "school")
-          (tags-todo "code")
-          (tags-todo "theory")
-          ))
-        ))
 
 (setq org-capture-templates
       '(("t"
@@ -91,8 +78,6 @@
 		 entry
 		 (file "~/.agenda/others.org")
 		 "* TODO %? %T\n")))
-
-(add-hook 'org-agenda-finalize-hook #'misc/org-agenda-time-grid-spacing)
 
 (setq org-export-backends (quote (ascii html icalendar latex md)))
 
