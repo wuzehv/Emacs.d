@@ -251,12 +251,9 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
-(use-package spaceline
+(use-package doom-modeline
   :ensure t
-  :init
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  :config
-  (spaceline-spacemacs-theme)
-  (spaceline-toggle-minor-modes-off))
+  :defer t
+  :hook (after-init . doom-modeline-init))
 
 (provide 'init-packages)
