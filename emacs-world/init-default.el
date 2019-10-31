@@ -39,9 +39,6 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
-;; 自动折行
-(global-visual-line-mode t)
-
 (global-prettify-symbols-mode t)
 
 (modify-syntax-entry ?_ "w")
