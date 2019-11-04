@@ -16,11 +16,11 @@
 (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
 
+(require 'misc-funcs)
+
 (require 'init-packages)
 
 (require 'init-default)
-
-(require 'misc-funcs)
 
 (require 'init-org)
 
