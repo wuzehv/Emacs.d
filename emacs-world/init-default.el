@@ -9,6 +9,9 @@
 
 ;; 设置中文字体
 (cond
+ ((string-equal system-type "windows-nt") ; win
+ (when (member "微软雅黑" (font-family-list))
+   (misc/set-chinese-font "微软雅黑")))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Hannotate SC" (font-family-list))
     (misc/set-chinese-font "Hannotate SC"))))
