@@ -163,4 +163,21 @@ same directory as the org-buffer and insert a link to this file."
   (yas-global-mode t)
   (local-set-key (kbd "C-c C-c") 'misc/compile-and-run))
 
+(defun misc/replace-punctuation()
+  "Convert punctuation from Chinese to English characters"
+  (interactive)
+  (save-excursion
+	(let ((map '(
+				 ("，" . ", ")
+				 ("。" . ". ")
+				 ("；" . "; ")
+				 ("：" . ": ")
+				 ("（" . "(")
+				 ("）" . ")")
+				 )))
+	  (while map
+		(setq tmp (car map))
+		(replace-string (car tmp) (cdr tmp) nil (point-min) (point-max))
+		(setq map (cdr map))))))
+
 (provide 'misc-funcs)
