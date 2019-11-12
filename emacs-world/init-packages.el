@@ -213,7 +213,9 @@
 (use-package go-mode
   :ensure t
   :config
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'godoc-mode-hook #'(lambda ()
+                                             (evil-emacs-state))))
 
 (use-package ace-jump-mode
   :ensure t)
