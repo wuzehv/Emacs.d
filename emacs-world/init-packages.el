@@ -168,10 +168,11 @@
   :config
   (popwin-mode t))
 
-(use-package web
+(use-package web-mode
   :ensure t
   :mode ("\\.html?\\'" . web-mode)
-  :mode ("\\.tpl.php?\\'" . web-mode))
+  :mode ("\\.tpl.php?\\'" . web-mode)
+  :mode ("\\.tpl?\\'" . web-mode))
 
 (use-package company
   :ensure t
