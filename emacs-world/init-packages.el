@@ -254,6 +254,12 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+(use-package yaml-mode
+  :ensure t)
+
+(use-package nginx-mode
+  :ensure t)
+
 (use-package doom-modeline
   :ensure t
   :defer t
