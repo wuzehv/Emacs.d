@@ -15,9 +15,8 @@
   :ensure t)
 
 (progn
-  (setq org-default-notes-file "~/.notes.org")
-  (setq agenda-file "~/.agenda/others.org")
-  (setq org-agenda-files (list org-default-notes-file agenda-file))
+  (setq org-default-notes-file "~/.org/notes.org")
+  (setq org-agenda-files (list org-default-notes-file))
   (setq org-fontify-done-headline t
 		org-todo-keywords
 		'((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
@@ -45,12 +44,7 @@
 		   "Protocol"
 		   entry
 		   (file+headline org-default-notes-file "Protocol")
-		   "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t)
-		  ("o"
-		   "Others"
-		   entry
-		   (file agenda-file)
-		   "* TODO %? %T\n"))
+		   "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t))
 
 		;; 样式
 		org-emphasis-alist
@@ -82,7 +76,7 @@
    (shell . t)))
 
 (add-hook 'org-agenda-mode-hook (lambda()
-			(define-key org-agenda-mode-map
-			  (kbd "RET") (lambda () (interactive) (org-agenda-switch-to t)))))
+								  (define-key org-agenda-mode-map
+									(kbd "RET") (lambda () (interactive) (org-agenda-switch-to t)))))
 
 (provide 'init-org)
