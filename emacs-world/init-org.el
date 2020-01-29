@@ -26,7 +26,7 @@
 		org-confirm-babel-evaluate nil
 		org-export-backends (quote (ascii html icalendar latex md))
 		;; 不显示样式两边的符号
-		org-hide-emphasis-markers t
+		;; org-hide-emphasis-markers t
 
 		;; catture
 		org-capture-templates
@@ -78,5 +78,9 @@
 (add-hook 'org-agenda-mode-hook (lambda()
 								  (define-key org-agenda-mode-map
 									(kbd "RET") (lambda () (interactive) (org-agenda-switch-to t)))))
+
+(add-hook 'before-save-hook (lambda()
+							  (if (string= major-mode "org-mode")
+								  (misc/replace-punctuation))))
 
 (provide 'init-org)
