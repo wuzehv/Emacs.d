@@ -14,52 +14,56 @@
 (use-package ob-go
   :ensure t)
 
-(setq org-fontify-done-headline t
-      org-todo-keywords
-      '((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
-	  org-todo-keyword-faces
-      '(("DOING" . "red"))
-	  org-indirect-buffer-display 'current-window
-	  org-confirm-babel-evaluate nil
-	  org-export-backends (quote (ascii html icalendar latex md))
-	  ;; 不显示样式两边的符号
-	  org-hide-emphasis-markers t
+(progn
+  (setq org-default-notes-file "~/.notes.org")
+  (setq agenda-file "~/.agenda/others.org")
+  (setq org-agenda-files (list org-default-notes-file agenda-file))
+  (setq org-fontify-done-headline t
+		org-todo-keywords
+		'((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
+		org-todo-keyword-faces
+		'(("DOING" . "red"))
+		org-indirect-buffer-display 'current-window
+		org-confirm-babel-evaluate nil
+		org-export-backends (quote (ascii html icalendar latex md))
+		;; 不显示样式两边的符号
+		org-hide-emphasis-markers t
 
-	  ;; catture
-	  org-capture-templates
-      '(("t"
-         "Todo list item"
-         entry
-         (file+headline org-default-notes-file "Tasks")
-         "* TODO %? %T\n")
-		("i"
-		 "Ideas for everything"
-		 entry
-		 (file+headline org-default-notes-file "Ideas")
-		 "* TODO %? %T\n")
-		("p"
-		 "Protocol"
-		 entry
-		 (file+headline org-default-notes-file "Protocol")
-		 "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t)
-		("o"
-		 "Others"
-		 entry
-		 (file "~/.agenda/others.org")
-		 "* TODO %? %T\n"))
+		;; catture
+		org-capture-templates
+		'(("t"
+		   "Technology list item"
+		   entry
+		   (file+headline org-default-notes-file "Technology")
+		   "* TODO %? %T\n")
+		  ("i"
+		   "Ideas for everything"
+		   entry
+		   (file+headline org-default-notes-file "Ideas")
+		   "* TODO %? %T\n")
+		  ("p"
+		   "Protocol"
+		   entry
+		   (file+headline org-default-notes-file "Protocol")
+		   "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t)
+		  ("o"
+		   "Others"
+		   entry
+		   (file agenda-file)
+		   "* TODO %? %T\n"))
 
-	  ;; 样式
-	  org-emphasis-alist
-      (cons '("+" '(:strike-through t :foreground "gray"))
-            (delete* "+" org-emphasis-alist :key 'car :test 'equal))
+		;; 样式
+		org-emphasis-alist
+		(cons '("+" '(:strike-through t :foreground "gray"))
+			  (delete* "+" org-emphasis-alist :key 'car :test 'equal))
 
-	  org-emphasis-alist
-      (cons '("*" '(:emphasis t :foreground "blue"))
-            (delete* "*" org-emphasis-alist :key 'car :test 'equal))
+		org-emphasis-alist
+		(cons '("*" '(:emphasis t :foreground "blue"))
+			  (delete* "*" org-emphasis-alist :key 'car :test 'equal))
 
-	  org-emphasis-alist
-      (cons '("~" '(:emphasis t :foreground "red"))
-            (delete* "~" org-emphasis-alist :key 'car :test 'equal)))
+		org-emphasis-alist
+		(cons '("~" '(:emphasis t :foreground "red"))
+			  (delete* "~" org-emphasis-alist :key 'car :test 'equal))))
 
 (setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
 
@@ -77,6 +81,8 @@
    (go . t)
    (shell . t)))
 
-(use-package org-protocol)
+(add-hook 'org-agenda-mode-hook (lambda()
+			(define-key org-agenda-mode-map
+			  (kbd "RET") (lambda () (interactive) (org-agenda-switch-to t)))))
 
 (provide 'init-org)
