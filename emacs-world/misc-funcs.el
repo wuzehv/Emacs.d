@@ -1,7 +1,7 @@
 ;; function
 (defun misc/open-init-file()
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file (concat user-emacs-directory "init.el")))
 
 (defun misc/switch-to-previous-buffer ()
   "Switch to most recent buffer. Repeated calls toggle back and forth between the most recent two buffers."

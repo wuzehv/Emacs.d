@@ -97,7 +97,7 @@
     (setq dashboard-set-heading-icons t)
     (setq dashboard-set-file-icons t)
     (setq dashboard-banner-logo-title "Welcome to Emacs World!")
-    (setq dashboard-startup-banner "~/.emacs.d/banner.png")
+    (setq dashboard-startup-banner (concat user-emacs-directory "banner.png"))
     (setq dashboard-center-content t)
     (setq dashboard-show-shortcuts nil)
     (setq dashboard-footer "by wuzehui")
@@ -146,7 +146,9 @@
   (use-package helm-ag
     :ensure t)
   (use-package helm-projectile
-    :ensure t)
+    :ensure t
+	:config
+	(setq projectile-enable-caching t))
   (use-package helm-swoop
     :ensure t))
 
@@ -189,6 +191,7 @@
 (use-package exec-path-from-shell
   :ensure t
   :config
+  (setq exec-path-from-shell-check-startup-files nil)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
