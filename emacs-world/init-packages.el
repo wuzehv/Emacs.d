@@ -184,18 +184,6 @@
   :config
   (load-theme 'monokai t))
 
-(add-hook 'prog-mode-hook 'hook/prog-mode-setting)
-(add-hook 'c-mode-hook #'(lambda()
-                           (setq indent-tabs-mode nil)
-                           (setq c-default-style "Linux")
-                           (setq c-basic-offset 4)))
-
-(add-hook 'emacs-lisp-mode-hook #'(lambda()
-                                    (setq indent-tabs-mode nil)))
-
-(add-hook 'python-mode-hook #'(lambda ()
-                                (setq indent-tabs-mode nil)))
-
 (use-package youdao-dictionary
   :ensure t
   :config
@@ -252,5 +240,17 @@
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init))
+
+(add-hook 'prog-mode-hook 'hook/prog-mode-setting)
+(add-hook 'c-mode-hook #'(lambda()
+                           (setq indent-tabs-mode nil)
+                           (setq c-default-style "Linux")
+                           (setq c-basic-offset 4)))
+
+(add-hook 'emacs-lisp-mode-hook #'(lambda()
+                                    (setq indent-tabs-mode nil)))
+
+(add-hook 'python-mode-hook #'(lambda ()
+                                (setq indent-tabs-mode nil)))
 
 (provide 'init-packages)
