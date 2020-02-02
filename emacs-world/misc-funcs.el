@@ -121,8 +121,11 @@ same directory as the org-buffer and insert a link to this file."
   (interactive "sScreenshot name: ")
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
+  (setq target-dir "./imgs/")
+  (unless (file-exists-p target-dir)
+	(make-directory target-dir t))
   (setq filename
-        (concat "./imgs/"
+        (concat target-dir
                 (file-name-base (buffer-file-name))
                 "_"
                 basename

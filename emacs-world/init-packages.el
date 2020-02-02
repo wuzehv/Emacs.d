@@ -103,11 +103,6 @@
     (setq dashboard-footer "by wuzehui")
     (setq dashboard-items '((recents . 5)))))
 
-;; better default
-(use-package recentf
-  :ensure nil
-  :hook (after-init . recentf-mode))
-
 ;; dired
 (use-package dired-x
   :config
@@ -117,9 +112,6 @@
   ;; 延迟加载
   (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
-
-(use-package aweshell
-  :ensure nil)
 
 (use-package helm
   :after evil
@@ -152,23 +144,15 @@
   (use-package helm-swoop
     :ensure t))
 
-(use-package smooth-scrolling
-  :ensure t
-  :init
-  (setq scroll-conservatively 10)
-  (setq scroll-margin 7)
-  :config
-  (smooth-scrolling-mode t))
-
 (use-package which-key
   :ensure t
   :config
-  (which-key-mode t))
+  :hook (after-init . which-key-mode))
 
 (use-package popwin
   :ensure t
   :config
-  (popwin-mode t))
+  :hook (after-init . popwin-mode))
 
 (use-package web-mode
   :ensure t
@@ -202,8 +186,12 @@
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()
+                           (setq indent-tabs-mode nil)
                            (setq c-default-style "Linux")
                            (setq c-basic-offset 4)))
+
+(add-hook 'emacs-lisp-mode-hook #'(lambda()
+                                    (setq indent-tabs-mode nil)))
 
 (add-hook 'python-mode-hook #'(lambda ()
                                 (setq indent-tabs-mode nil)))
@@ -219,7 +207,7 @@
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'godoc-mode-hook #'(lambda ()
-                                             (evil-emacs-state))))
+                                 (evil-emacs-state))))
 
 (use-package ace-jump-mode
   :ensure t)
@@ -241,9 +229,6 @@
 
 (use-package php-mode
   :ensure t)
-
-(use-package ob-php
-  :ensure nil)
 
 (use-package htmlize
   :ensure t)
