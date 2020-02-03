@@ -1,6 +1,6 @@
 ## Emacs配置
 
-<p align="center"><img src="/dashboard.jpg" alt="Spacemacs"/></p>
+<p align="center"><img src="/dashboard.jpg" alt="wuzehv emacs"/></p>
 
 ### Feature
 #### 键位
