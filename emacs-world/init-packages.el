@@ -75,7 +75,8 @@
     (define-key evil-insert-state-map
       (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
     ;; esc切换回insert
-    (define-key evil-insert-state-map [escape] 'evil-normal-state))
+    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+    (evil-define-key 'normal haskell-mode-map "o" 'misc/haskell-mode-map))
   (use-package evil-surround
     :ensure t
     :config
@@ -240,6 +241,9 @@
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init))
+
+(use-package haskell-mode
+  :ensure t)
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()

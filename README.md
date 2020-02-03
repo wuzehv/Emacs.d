@@ -16,6 +16,7 @@
 * yaml
 * html/css/js
 * python
+* haskell
 
 ### Usage
 ```bash
