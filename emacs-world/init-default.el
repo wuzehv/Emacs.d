@@ -10,8 +10,8 @@
 ;; 设置中文字体
 (cond
  ((string-equal system-type "windows-nt") ; win
- (when (member "微软雅黑" (font-family-list))
-   (misc/set-chinese-font "微软雅黑")))
+  (when (member "微软雅黑" (font-family-list))
+    (misc/set-chinese-font "微软雅黑")))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Hannotate SC" (font-family-list))
     (misc/set-chinese-font "Hannotate SC"))))
@@ -52,5 +52,9 @@
 (push (cons "\\*eshell\\*" display-buffer--same-window-action) display-buffer-alist)
 
 (setq-default line-spacing 0.4)
+
+;; 平滑滚动
+(setq scroll-margin 3
+      scroll-conservatively 10000)
 
 (provide 'init-default)

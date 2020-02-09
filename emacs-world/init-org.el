@@ -44,7 +44,7 @@
 		   "Protocol"
 		   entry
 		   (file+headline org-default-notes-file "Protocol")
-		   "* %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t))
+		   "* TODO %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t))
 
 		;; 样式
 		org-emphasis-alist

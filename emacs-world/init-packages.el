@@ -17,15 +17,17 @@
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
+      "r" 'helm-recentf
+      "d" 'dired-jump
+      "v" 'er/expand-region
+      "i" 'helm-imenu
+      "j" 'ace-jump-char-mode
       "SPC" 'helm-buffers-list
       "TAB" 'misc/switch-to-previous-buffer
-      "r" 'helm-recentf
 
       ;; file
       "ff" 'helm-find-files
       "fy" 'misc/put-file-name-on-clipboard
-      "fs" 'helm-ag-this-file
-      "fd" 'misc/delete-current-file-copy-to-kill-ring
       "fr" 'misc/rename-file-and-buffer
 
       ;; buffer
@@ -37,14 +39,6 @@
       "pp" 'helm-projectile-switch-project
       "pi" 'projectile-invalidate-cache
       "ps" 'helm-projectile-ag
-
-      "x" 'helm-M-x
-      "v" 'er/expand-region
-      "jf" 'helm-imenu
-      "d" 'dired-jump
-      "i" 'iedit-mode
-      "fc" 'recentf-cleanup
-      "jc" 'ace-jump-char-mode
 
       ;; window
       "w/" 'split-window-right
