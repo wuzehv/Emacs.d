@@ -239,6 +239,9 @@
 (use-package haskell-mode
   :ensure t)
 
+(use-package iedit
+  :ensure t)
+
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()
                            (setq indent-tabs-mode nil)
@@ -249,6 +252,9 @@
                                     (setq indent-tabs-mode nil)))
 
 (add-hook 'python-mode-hook #'(lambda ()
+                                (setq indent-tabs-mode nil)))
+
+(add-hook 'js-mode-hook #'(lambda ()
                                 (setq indent-tabs-mode nil)))
 
 (provide 'init-packages)
