@@ -243,6 +243,7 @@
   :ensure t)
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
+(add-hook 'java-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()
                            (setq indent-tabs-mode nil)
                            (setq c-default-style "Linux")
