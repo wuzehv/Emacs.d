@@ -243,7 +243,6 @@
   :ensure t)
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
-(add-hook 'java-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()
                            (setq indent-tabs-mode nil)
                            (setq c-default-style "Linux")
@@ -253,9 +252,6 @@
                                     (setq indent-tabs-mode nil)))
 
 (add-hook 'python-mode-hook #'(lambda ()
-                                (setq indent-tabs-mode nil)))
-
-(add-hook 'js-mode-hook #'(lambda ()
                                 (setq indent-tabs-mode nil)))
 
 (provide 'init-packages)
