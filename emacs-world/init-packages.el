@@ -134,8 +134,8 @@
     :ensure t)
   (use-package helm-projectile
     :ensure t
-	:config
-	(setq projectile-enable-caching t))
+    :config
+    (setq projectile-enable-caching t))
   (use-package helm-swoop
     :ensure t))
 
@@ -177,6 +177,7 @@
 (use-package monokai-theme
   :ensure t
   :config
+  (setq monokai-background "#151515")
   (load-theme 'monokai t))
 
 (use-package youdao-dictionary

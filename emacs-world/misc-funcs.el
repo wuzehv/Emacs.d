@@ -67,21 +67,21 @@ Version 2015-08-22"
   "compile && run"
   (interactive)
   (if (memq major-mode '(c-mode python-mode go-mode php-mode sh-mode java-mode))
-	  (progn
-		(save-buffer)
-		(if (string= major-mode "c-mode")
-			(compile (format "gcc %s && ./a.out" (buffer-file-name))))
-		(if (string= major-mode "python-mode")
-			(compile (format "python3 %s" (buffer-file-name))))
-		(if (string= major-mode "go-mode")
-			(compile (format "go run %s" (buffer-file-name))))
-		(if (string= major-mode "php-mode")
-			(compile (format "php %s" (buffer-file-name))))
-		(if (string= major-mode "sh-mode")
-			(compile (format "/bin/bash %s" (buffer-file-name))))
-		(if (string= major-mode "java-mode")
-			(compile (format "java %s" (buffer-file-name))))
-		(switch-to-buffer-other-window "*compilation*"))))
+      (progn
+        (save-buffer)
+        (if (string= major-mode "c-mode")
+            (compile (format "gcc %s && ./a.out" (buffer-file-name))))
+        (if (string= major-mode "python-mode")
+            (compile (format "python3 %s" (buffer-file-name))))
+        (if (string= major-mode "go-mode")
+            (compile (format "go run %s" (buffer-file-name))))
+        (if (string= major-mode "php-mode")
+            (compile (format "php %s" (buffer-file-name))))
+        (if (string= major-mode "sh-mode")
+            (compile (format "/bin/bash %s" (buffer-file-name))))
+        (if (string= major-mode "java-mode")
+            (compile (format "java %s" (buffer-file-name))))
+        (switch-to-buffer-other-window "*compilation*"))))
 
 (defun misc/haskell-mode-map()
   "fix evil normal 状态下 haskell mode \"o\"键 缩进问题"
@@ -109,7 +109,7 @@ same directory as the org-buffer and insert a link to this file."
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
   (setq target-dir "./imgs/")
   (unless (file-exists-p target-dir)
-	(make-directory target-dir t))
+    (make-directory target-dir t))
   (setq filename
         (concat target-dir
                 (file-name-base (buffer-file-name))
@@ -154,18 +154,18 @@ same directory as the org-buffer and insert a link to this file."
   "Convert punctuation from Chinese to English characters"
   (interactive)
   (save-excursion
-	(let ((map '(
-				 ("，" . ", ")
-				 ("。" . ". ")
-				 ("；" . "; ")
-				 ("：" . ": ")
-				 ("（" . "(")
-				 ("）" . ")")
-				 ("？" . "? ")
-				 )))
-	  (while map
-		(setq tmp (car map))
-		(replace-string (car tmp) (cdr tmp) nil (point-min) (point-max))
-		(setq map (cdr map))))))
+    (let ((map '(
+                 ("，" . ", ")
+                 ("。" . ". ")
+                 ("；" . "; ")
+                 ("：" . ": ")
+                 ("（" . "(")
+                 ("）" . ")")
+                 ("？" . "? ")
+                 )))
+      (while map
+        (setq tmp (car map))
+        (replace-string (car tmp) (cdr tmp) nil (point-min) (point-max))
+        (setq map (cdr map))))))
 
 (provide 'misc-funcs)
