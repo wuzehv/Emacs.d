@@ -177,7 +177,6 @@
 (use-package monokai-theme
   :ensure t
   :config
-  (setq monokai-background "#151515")
   (load-theme 'monokai t))
 
 (use-package youdao-dictionary
