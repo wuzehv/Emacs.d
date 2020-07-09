@@ -254,4 +254,6 @@
 (add-hook 'python-mode-hook #'(lambda ()
                                 (setq indent-tabs-mode nil)))
 
+(add-hook 'compilation-mode-hook 'misc/compilation-hook)
+
 (provide 'init-packages)

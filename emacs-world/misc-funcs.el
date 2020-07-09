@@ -81,7 +81,7 @@ Version 2015-08-22"
             (compile (format "/bin/bash %s" (buffer-file-name))))
         (if (string= major-mode "java-mode")
             (compile (format "java %s" (buffer-file-name))))
-        (switch-to-buffer-other-window "*compilation*"))))
+        (evil-normal-state))))
 
 (defun misc/haskell-mode-map()
   "fix evil normal 状态下 haskell mode \"o\"键 缩进问题"
@@ -148,7 +148,7 @@ same directory as the org-buffer and insert a link to this file."
   (projectile-mode t)
   (helm-projectile-on)
   (yas-global-mode t)
-  (local-set-key (kbd "C-c C-c") 'misc/compile-and-run))
+  (local-set-key (kbd "<f4>") 'misc/compile-and-run))
 
 (defun misc/replace-punctuation()
   "Convert punctuation from Chinese to English characters"
@@ -167,5 +167,15 @@ same directory as the org-buffer and insert a link to this file."
         (setq tmp (car map))
         (replace-string (car tmp) (cdr tmp) nil (point-min) (point-max))
         (setq map (cdr map))))))
+
+(defun misc/compilation-hook ()
+  (when (not (get-buffer-window "*compilation*"))
+    (save-selected-window
+      (save-excursion
+        (let* ((w (split-window-vertically))
+               (h (window-height w)))
+          (select-window w)
+          (switch-to-buffer "*compilation*")
+          (shrink-window (/ (* 2 h) 5)))))))
 
 (provide 'misc-funcs)
