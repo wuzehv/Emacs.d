@@ -176,6 +176,7 @@ same directory as the org-buffer and insert a link to this file."
                (h (window-height w)))
           (select-window w)
           (switch-to-buffer "*compilation*")
-          (shrink-window (/ (* 2 h) 5)))))))
+          (shrink-window (/ (* 2 h) 5))
+          (local-set-key (kbd "q" ) 'delete-window))))))
 
 (provide 'misc-funcs)
