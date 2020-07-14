@@ -32,8 +32,7 @@
         ;; 时间格式查看 C-h f format-time-string
         org-capture-templates
         '(("t"
-           "Technology list item"
-           entry
+           "Technology list item" entry
            (file+headline org-default-notes-file "Technology")
            "* TODO %? %<%Y-%m-%d %H:%M Week:%u>\n")
           ("i"
@@ -62,12 +61,24 @@
 
 (setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
 
-(add-hook 'org-mode-hook (lambda ()
-                           (setq truncate-lines nil)
-                           (org-display-inline-images)
-                           (org-bullets-mode t)
-                           (hungry-delete-mode t)
-                           (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)))
+(with-eval-after-load 'org
+  (defun org-buffer-face-mode-variable ()
+    (interactive)
+    (make-face 'width-font-face)
+    ;; 字体下载链接
+    ;; https://github.com/be5invis/Sarasa-Gothic/releases
+    ;; https://www.lanzous.com/ia5zbgh(我是安装的这个)
+    (set-face-attribute 'width-font-face nil :font "Sarasa Mono SC 16")
+    (setq buffer-face-mode-face 'width-font-face)
+    (buffer-face-mode))
+
+  (add-hook 'org-mode-hook (lambda ()
+                             (setq truncate-lines nil)
+                             (org-display-inline-images)
+                             (org-bullets-mode t)
+                             (hungry-delete-mode t)
+                             (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)
+                             (org-buffer-face-mode-variable))))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
