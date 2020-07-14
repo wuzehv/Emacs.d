@@ -62,23 +62,16 @@
 (setf org-todo-keyword-faces '(("PAUSE" . (:foreground "white" :background "#3498DB" :weight bold))))
 
 (with-eval-after-load 'org
-  (defun org-buffer-face-mode-variable ()
-    (interactive)
-    (make-face 'width-font-face)
-    ;; 字体下载链接
-    ;; https://github.com/be5invis/Sarasa-Gothic/releases
-    ;; https://www.lanzous.com/ia5zbgh(我是安装的这个)
-    (set-face-attribute 'width-font-face nil :font "Sarasa Mono SC 16")
-    (setq buffer-face-mode-face 'width-font-face)
-    (buffer-face-mode))
-
+  ;; 字体下载链接
+  ;; https://github.com/be5invis/Sarasa-Gothic/releases
+  ;; https://www.lanzous.com/ia5zbgh(我是安装的这个)
   (add-hook 'org-mode-hook (lambda ()
                              (setq truncate-lines nil)
                              (org-display-inline-images)
                              (org-bullets-mode t)
                              (hungry-delete-mode t)
                              (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)
-                             (org-buffer-face-mode-variable))))
+                             (set-face-attribute 'org-table nil :font "Sarasa Mono SC 16"))))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
