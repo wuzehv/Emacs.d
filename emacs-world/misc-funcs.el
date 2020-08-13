@@ -179,4 +179,10 @@ same directory as the org-buffer and insert a link to this file."
           (shrink-window (/ (* 2 h) 5))
           (local-set-key (kbd "q" ) 'delete-window))))))
 
+;; dired mode, delete buffer automatically after removing file
+(advice-add 'dired-delete-file :before
+            (lambda (file &rest rest)
+              (when-let ((buf (get-file-buffer file)))
+                (kill-buffer buf))))
+
 (provide 'misc-funcs)
