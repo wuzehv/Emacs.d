@@ -5,6 +5,8 @@
 (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 (org-element-update-syntax)
 
+(require 'org-tempo) 
+
 (use-package org-bullets
   :ensure t
   :init
@@ -52,7 +54,7 @@
               (delete* "+" org-emphasis-alist :key 'car :test 'equal))
 
         org-emphasis-alist
-        (cons '("*" '(:emphasis t :foreground "blue"))
+        (cons '("*" '(:emphasis t :foreground "Orchid"))
               (delete* "*" org-emphasis-alist :key 'car :test 'equal))
 
         org-emphasis-alist
@@ -70,6 +72,7 @@
                              (org-display-inline-images)
                              (org-bullets-mode t)
                              (hungry-delete-mode t)
+                             (electric-pair-local-mode -1)
                              (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)
                              (set-face-attribute 'org-table nil :font "Sarasa Mono SC 16"))))
 
