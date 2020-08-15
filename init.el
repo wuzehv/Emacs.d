@@ -20,8 +20,6 @@
 
 (require 'init-org)
 
-(require 'init-keymap)
-
 ;; custom
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'no-error 'no-message)

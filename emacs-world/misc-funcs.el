@@ -101,6 +101,8 @@ Version 2015-08-22"
         (indent-region (point-min) (point-max))
         (message "Indented buffer.")))))
 
+(global-set-key (kbd "C-M-\\") #'misc/indent-region-or-buffer)
+
 (defun misc/org-screenshot (basename)
   "Take a screenshot into a time stamped unique-named file in the
 same directory as the org-buffer and insert a link to this file."

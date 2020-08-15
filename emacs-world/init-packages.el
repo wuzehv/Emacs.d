@@ -80,7 +80,6 @@
     :after evil
     :ensure t
     :config
-    (evilnc-default-hotkeys)
     (define-key evil-normal-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)
     (define-key evil-visual-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)))
 
@@ -123,6 +122,7 @@
         helm-ag-insert-at-point 'symbol)
   (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
   (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
   :config
   (progn
     (define-key helm-map [escape] 'helm-keyboard-quit)
@@ -138,7 +138,9 @@
     :config
     (setq projectile-enable-caching t))
   (use-package helm-swoop
-    :ensure t))
+    :ensure t
+    :config
+    (global-set-key (kbd "C-s") 'helm-swoop)))
 
 (use-package which-key
   :ensure t
@@ -179,12 +181,6 @@
   :ensure t
   :config
   (load-theme 'monokai t))
-
-(use-package youdao-dictionary
-  :ensure t
-  :config
-  (add-hook 'youdao-dictionary-mode-hook #'(lambda ()
-                                             (evil-emacs-state))))
 
 (use-package go-mode
   :ensure t
@@ -242,6 +238,19 @@
 
 (use-package iedit
   :ensure t)
+
+(use-package google-translate
+  :ensure t
+  :defer t
+  :bind (
+         ;; 光标下 英文到中文
+         ("C-c t" . 'google-translate-at-point)
+         ;; 光标下 中文到英文
+         ("C-c r" . 'google-translate-at-point-reverse)
+         ;; 手动输入 英文到中文
+         ("C-c T" . 'google-translate-query-translate)
+         ;; 手动输入 中文到英文
+         ("C-c R" . 'google-translate-query-translate-reverse)))
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 (add-hook 'c-mode-hook #'(lambda()

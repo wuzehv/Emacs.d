@@ -18,6 +18,8 @@
  '(display-line-numbers-width-start nil)
  '(evil-leader/leader "SPC")
  '(gofmt-show-errors 'echo)
+ '(google-translate-default-source-language "en")
+ '(google-translate-default-target-language "zh-CN")
  '(indent-tabs-mode nil)
  '(org-agenda-files '("~/.org/notes.org"))
  '(org-agenda-window-setup 'only-window)

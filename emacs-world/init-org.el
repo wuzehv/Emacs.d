@@ -1,4 +1,6 @@
 ;; org
+(require 'org)
+
 ;; 不需要添加空格就支持样式；https://emacs-china.org/t/org-mode/597
 (setcar (nthcdr 0 org-emphasis-regexp-components) " \t('\"{[:nonascii:]")
 (setcar (nthcdr 1 org-emphasis-regexp-components) "- \t.,:!?;'\")}\\[[:nonascii:]")
@@ -90,5 +92,7 @@
 (add-hook 'before-save-hook (lambda()
                               (if (string= major-mode "org-mode")
                                   (misc/replace-punctuation))))
+
+(global-set-key (kbd "C-c c") 'org-capture)
 
 (provide 'init-org)
