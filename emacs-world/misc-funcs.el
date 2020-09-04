@@ -187,4 +187,16 @@ same directory as the org-buffer and insert a link to this file."
               (when-let ((buf (get-file-buffer file)))
                 (kill-buffer buf))))
 
+(defun misc/tuofeng-variables()
+  "驼峰转下划线"
+  (interactive)
+  (goto-char (point-min))
+  (while (not (eobp))
+    (progn
+      (evil-visual-char)
+      (search-forward ":")
+      (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning) (region-end))
+      (downcase-region (region-beginning) (region-end)))
+    (forward-line 1)))
+
 (provide 'misc-funcs)

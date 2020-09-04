@@ -177,11 +177,6 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package monokai-theme
-  :ensure t
-  :config
-  (load-theme 'monokai t))
-
 (use-package go-mode
   :ensure t
   :config
