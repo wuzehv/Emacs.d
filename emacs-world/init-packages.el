@@ -1,7 +1,6 @@
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/") ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
-(when (< emacs-major-version 27)
-  (package-initialize))
+(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
