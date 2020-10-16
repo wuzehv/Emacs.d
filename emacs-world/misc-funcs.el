@@ -53,16 +53,6 @@ Version 2015-08-22"
   (org-open-at-point)
   (delete-other-windows))
 
-(defun misc/helm-hide-minibuffer-maybe ()
-  "Hide minibuffer in Helm session if we use the header line as input field."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
-
 (defun misc/compile-and-run()
   "compile && run"
   (interactive)
@@ -148,7 +138,6 @@ same directory as the org-buffer and insert a link to this file."
   (hungry-delete-mode t)
   (company-mode t)
   (projectile-mode t)
-  (helm-projectile-on)
   (yas-global-mode t)
   (local-set-key (kbd "<f4>") 'misc/compile-and-run))
 
@@ -190,13 +179,10 @@ same directory as the org-buffer and insert a link to this file."
 (defun misc/tuofeng-variables()
   "驼峰转下划线"
   (interactive)
-  (goto-char (point-min))
-  (while (not (eobp))
+  (save-excursion
     (progn
-      (evil-visual-char)
-      (search-forward ":")
-      (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning) (region-end))
-      (downcase-region (region-beginning) (region-end)))
-    (forward-line 1)))
+      (mark-whole-buffer)
+      (replace-regexp "\\([A-Z]\\)" "_\\1")
+      (downcase-region (region-beginning) (region-end)))))
 
 (provide 'misc-funcs)
