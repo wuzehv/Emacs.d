@@ -17,16 +17,15 @@
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
-      "r" 'helm-recentf
+      "r" 'counsel-recentf
       "d" 'dired-jump
       "v" 'er/expand-region
-      "i" 'helm-imenu
       "j" 'ace-jump-char-mode
-      "SPC" 'helm-buffers-list
+      "SPC" 'ivy-switch-buffer
       "TAB" 'misc/switch-to-previous-buffer
 
       ;; file
-      "ff" 'helm-find-files
+      "ff" 'counsel-find-file
       "fy" 'misc/put-file-name-on-clipboard
       "fr" 'misc/rename-file-and-buffer
 
@@ -35,10 +34,9 @@
       "bk" 'kill-this-buffer
 
       ;; project
-      "pf" 'helm-projectile-find-file
-      "pp" 'helm-projectile-switch-project
-      "pi" 'projectile-invalidate-cache
-      "ps" 'helm-projectile-ag
+      "pf" 'counsel-projectile-find-file
+      "pp" 'counsel-projectile-switch-project
+      "ps" 'counsel-ag
 
       ;; window
       "w/" 'split-window-right
@@ -106,40 +104,6 @@
   ;; 延迟加载
   (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
-
-(use-package helm
-  :after evil
-  :ensure t
-  :init
-  (setq helm-split-window-in-side-p           t
-        helm-move-to-line-cycle-in-source     t
-        helm-ff-search-library-in-sexp        t
-        helm-scroll-amount                    8
-        helm-ff-file-name-history-use-recentf t
-        helm-autoresize-max-height 0
-        helm-autoresize-min-height 20
-        helm-ag-insert-at-point 'symbol)
-  (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-  :config
-  (progn
-    (define-key helm-map [escape] 'helm-keyboard-quit)
-    (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-z")  'helm-select-action)
-    (add-hook 'helm-minibuffer-set-up-hook
-              'misc/helm-hide-minibuffer-maybe))
-  (use-package helm-ag
-    :ensure t)
-  (use-package helm-projectile
-    :ensure t
-    :config
-    (setq projectile-enable-caching t))
-  (use-package helm-swoop
-    :ensure t
-    :config
-    (global-set-key (kbd "C-s") 'helm-swoop)))
 
 (use-package which-key
   :ensure t
@@ -231,6 +195,24 @@
   :ensure t)
 
 (use-package iedit
+  :ensure t)
+
+(use-package ivy
+  :ensure t)
+
+(use-package swiper
+  :ensure t
+  :config
+  (global-set-key "\C-s" 'swiper))
+
+(use-package counsel
+  :after evil
+  :ensure t
+  :config
+  (define-key evil-normal-state-map (kbd "RET") 'counsel-recentf)
+  (global-set-key (kbd "M-x") 'counsel-M-x))
+
+(use-package counsel-projectile
   :ensure t)
 
 (use-package google-translate
