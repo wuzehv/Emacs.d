@@ -18,6 +18,8 @@
 
 (setq-default linum-format "%4d ")
 
+(setq ring-bell-function 'ignore)
+
 ;; 取消自动备份文件
 (setq make-backup-files nil)
 
