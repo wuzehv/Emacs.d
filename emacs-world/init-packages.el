@@ -115,6 +115,9 @@
   :config
   :hook (after-init . popwin-mode))
 
+(use-package popup
+  :ensure t)
+
 (use-package web-mode
   :ensure t
   :mode ("\\.html?\\'" . web-mode)
@@ -198,7 +201,9 @@
   :ensure t)
 
 (use-package ivy
-  :ensure t)
+  :ensure t
+  :config
+  (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit))
 
 (use-package swiper
   :ensure t
