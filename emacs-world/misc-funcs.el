@@ -130,15 +130,25 @@ same directory as the org-buffer and insert a link to this file."
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
+(defun misc/helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
 (defun hook/prog-mode-setting()
   "program setting"
-  (setq indent-tabs-mode t)
-  (setq-default tab-width 4)
+  (setq indent-tabs-mode nil)
   (display-line-numbers-mode t)
   (hungry-delete-mode t)
   (company-mode t)
   (projectile-mode t)
   (yas-global-mode t)
+  (helm-projectile-on)
   (local-set-key (kbd "<f4>") 'misc/compile-and-run))
 
 (defun misc/replace-punctuation()

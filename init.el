@@ -1,3 +1,7 @@
+(setq gc-cons-threshold 100000000)
+(setq large-file-warning-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
+
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)

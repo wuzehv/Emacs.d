@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: org2html
+# key: exht
+# --
+
+#+TITLE: $1
+#+OPTIONS: ^:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>

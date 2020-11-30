@@ -21,6 +21,7 @@
 (progn
   (setq org-default-notes-file "~/.org/notes.org")
   (setq org-agenda-files (list org-default-notes-file))
+  (setq org-html-validation-link nil)
   (setq org-fontify-done-headline t
         org-todo-keywords
         '((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
