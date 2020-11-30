@@ -238,9 +238,10 @@
 
 (use-package google-translate
   :ensure t
-  :defer t
   :config
-  (setq google-translate-backend-method 'curl)
+  (defun google-translate--search-tkk ()
+    "Search TKK. Fix search-failed \",tkk:'\""
+    (list 430675 2721866130))
   :bind (
          ;; 光标下 英文到中文
          ("C-c t" . 'google-translate-at-point)
