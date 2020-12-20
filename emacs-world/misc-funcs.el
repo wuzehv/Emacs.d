@@ -143,6 +143,8 @@ same directory as the org-buffer and insert a link to this file."
 (defun hook/prog-mode-setting()
   "program setting"
   (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)
+  (setq tab-width 4)
   (display-line-numbers-mode t)
   (hungry-delete-mode t)
   (company-mode t)

@@ -258,42 +258,20 @@
          ;; 手动输入 中文到英文
          ("C-c R" . 'google-translate-query-translate-reverse)))
 
-(use-package lsp-mode
-  :hook (
-         (php-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :config
-  (setq lsp-enable-file-watchers nil)
-  :commands lsp)
-
-(use-package helm-lsp
-  :ensure t
-  :commands helm-lsp-workspace-symbol)
-
-(use-package aggressive-indent
-  :ensure t
-  :hook (
-         prog-mode . aggressive-indent-mode))
-
-(use-package highlight-indentation
-  :hook (
-         (prog-mode . highlight-indentation-mode))
-  :ensure t)
-
-(use-package doom-themes
-  :ensure t
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-one-light t)
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config))
+(if (display-graphic-p)
+    (progn
+      (use-package doom-themes
+        :ensure t
+        :config
+        (setq doom-themes-enable-bold t
+              doom-themes-enable-italic t)
+        (load-theme 'doom-one-light t)
+        (doom-themes-visual-bell-config)
+        (doom-themes-org-config))
+      )
+  (load-theme 'leuven))
 
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
-
-(add-hook 'c-mode-hook #'(lambda()
-                           (setq c-default-style "Linux")
-                           (setq c-basic-offset 4)))
 
 (add-hook 'compilation-mode-hook 'misc/compilation-hook)
 

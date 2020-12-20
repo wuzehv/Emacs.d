@@ -59,6 +59,4 @@
 (setq scroll-margin 3
       scroll-conservatively 10000)
 
-;; (load-theme 'leuven)
-
 (provide 'init-default)
