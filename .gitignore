@@ -13,3 +13,5 @@ transient
 bookmarks
 .lsp*
 lsp-cache
+.cache
+.org-id-locations
