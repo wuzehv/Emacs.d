@@ -20,12 +20,13 @@
  '(gofmt-show-errors 'echo)
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
+ '(helm-split-window-other-side-when-one-window 'left)
  '(indent-tabs-mode nil)
  '(org-agenda-files '("~/.org/notes.org"))
  '(org-agenda-window-setup 'only-window)
  '(org-image-actual-width 500)
  '(package-selected-packages
-   '(lsp-mode evil evil-leader evil-surround evil-nerd-commenter company company-go helm helm-ag helm-projectile helm-swoop monokai-theme doom-modeline org-bullets dashboard projectile magit smooth-scrolling hungry-delete expand-region which-key popwin disable-mouse iedit use-package winum youdao-dictionary exec-path-from-shell yasnippet markdown-mode php-mode web-mode lua-mode haskell-mode go-mode))
+   '(helm-icons helm-icon lsp-mode evil evil-leader evil-surround evil-nerd-commenter company company-go helm helm-ag helm-projectile helm-swoop monokai-theme doom-modeline org-bullets dashboard projectile magit smooth-scrolling hungry-delete expand-region which-key popwin disable-mouse iedit use-package winum youdao-dictionary exec-path-from-shell yasnippet markdown-mode php-mode web-mode lua-mode haskell-mode go-mode))
  '(popwin:special-display-config
    '((Man-mode)
      (godoc-mode)
