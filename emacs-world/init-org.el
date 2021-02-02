@@ -13,7 +13,8 @@
   :ensure t
   :init
   ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
-  (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌")))
+  ;; (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
+  (setq org-ellipsis " ▼ "))
 
 (use-package ob-go
   :ensure t)
