@@ -58,7 +58,7 @@
               (delete* "+" org-emphasis-alist :key 'car :test 'equal))
 
         org-emphasis-alist
-        (cons '("*" '(:emphasis t :foreground "Orchid"))
+        (cons '("*" '(:emphasis t :foreground "DarkTurquoise"))
               (delete* "*" org-emphasis-alist :key 'car :test 'equal))
 
         org-emphasis-alist
