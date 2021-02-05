@@ -20,6 +20,7 @@
   :ensure t)
 
 (progn
+  (setq org-src-tab-acts-natively t)
   (setq org-default-notes-file "~/.org/notes.org")
   (setq org-agenda-files (list org-default-notes-file))
   (setq org-html-validation-link nil)
@@ -40,17 +41,17 @@
         '(("t"
            "Technology list item" entry
            (file+headline org-default-notes-file "Technology")
-           "* TODO %? %<%Y-%m-%d %H:%M Week:%u>\n")
+           "* TODO <%<%Y-%m-%d %H:%M Week:%u>> | %?\n")
           ("i"
            "Ideas for everything"
            entry
            (file+headline org-default-notes-file "Ideas")
-           "* TODO %? %T\n")
+           "* TODO <%<%Y-%m-%d %H:%M Week:%u>> | %?\n")
           ("p"
            "Protocol"
            entry
            (file+headline org-default-notes-file "Protocol")
-           "* TODO %t %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t))
+           "* TODO <%<%Y-%m-%d %H:%M Week:%u>> | %:description\n  source: web\n  link: %l\n\n  %i\n" :immediate-finish t :kill-buffer t))
 
         ;; 样式
         org-emphasis-alist
