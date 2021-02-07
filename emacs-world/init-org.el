@@ -26,7 +26,7 @@
   (setq org-html-validation-link nil)
   (setq org-fontify-done-headline t
         org-todo-keywords
-        '((sequence "TODO(t)" "DOING(i)" "PAUSE(p)" "|" "DONE(d)" "|" "CANCELLED(c)"))
+        '((sequence "TODO(t)" "|" "DONE(d)" "|" "CANCELLED(c)"))
         org-todo-keyword-faces
         '(("DOING" . "red"))
         org-indirect-buffer-display 'current-window
