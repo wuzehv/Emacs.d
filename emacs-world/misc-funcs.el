@@ -197,4 +197,9 @@ same directory as the org-buffer and insert a link to this file."
       (replace-regexp "\\([A-Z]\\)" "_\\1")
       (downcase-region (region-beginning) (region-end)))))
 
+(defun misc/org-babel-remove-result-all()
+  "移除org文件中所有的RESULTS"
+  (interactive)
+  (org-babel-remove-result-one-or-many t))
+
 (provide 'misc-funcs)
