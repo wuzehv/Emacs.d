@@ -97,7 +97,7 @@
  '(line-number ((t (:foreground "#aeaeae"))))
  '(line-number-current-line ((t nil)))
  '(org-block ((t (:extend t :background "#F8F8F8"))))
- '(org-block-begin-line ((t (:extend t :background "#F9F9F9" :foreground "dim gray" :slant italic :weight bold))))
+ '(org-block-begin-line ((t (:extend t :background "#F9F9F9" :foreground "gray55" :slant normal))))
  '(org-done ((t (:inherit org-headline-done :foreground "dim gray" :strike-through t :weight bold))))
  '(org-headline-done ((t (:foreground "dim gray" :strike-through t))))
  '(region ((t (:background "khaki"))))
