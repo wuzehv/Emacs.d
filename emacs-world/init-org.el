@@ -20,7 +20,8 @@
   :ensure t)
 
 (progn
-  (setq org-src-tab-acts-natively t)
+  (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+  (setq org-cycle-separator-lines 0)
   (setq org-default-notes-file "~/.org/notes.org")
   (setq org-agenda-files (list org-default-notes-file))
   (setq org-html-validation-link nil)
@@ -73,6 +74,8 @@
   ;; https://github.com/be5invis/Sarasa-Gothic/releases
   ;; https://www.lanzous.com/ia5zbgh(我是安装的这个)
   (add-hook 'org-mode-hook (lambda ()
+                             (setq indent-tabs-mode t)
+                             (setq tab-width 4)
                              (setq truncate-lines nil)
                              (org-display-inline-images)
                              (org-bullets-mode t)

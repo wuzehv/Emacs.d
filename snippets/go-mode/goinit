@@ -6,9 +6,8 @@ package main
 
 import (
         "fmt"
-        $1
 )
 
 func main() {
-     $2
+     $1
 }
