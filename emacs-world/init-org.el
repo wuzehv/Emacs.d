@@ -20,6 +20,7 @@
   :ensure t)
 
 (progn
+  (setq org-src-tab-acts-natively t)
   (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
   (setq org-cycle-separator-lines 0)
   (setq org-default-notes-file "~/.org/notes.org")
