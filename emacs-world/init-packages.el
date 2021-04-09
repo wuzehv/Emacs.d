@@ -233,7 +233,7 @@
   :ensure t
   :defer t
   :config
-  (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
+  (setq doom-modeline-buffer-file-name-style 'relative-to-project)
   :hook (after-init . doom-modeline-init))
 
 (use-package haskell-mode
