@@ -14,11 +14,9 @@
 (let ((default-directory (concat user-emacs-directory "private/")))
     (normal-top-level-add-subdirs-to-load-path))
 
-(setq byte-compile-warnings '(cl-functions))
+(require 'init-func)
 
-(require 'misc-funcs)
-
-(require 'init-packages)
+(require 'init-package)
 
 (require 'init-default)
 

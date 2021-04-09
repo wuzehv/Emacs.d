@@ -1,5 +1,6 @@
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/") ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")))
 
+(setq package-enable-at-startup nil)
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -7,6 +8,8 @@
   (package-install 'use-package))
 
 (require 'use-package)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 (use-package evil
   :init
@@ -58,10 +61,8 @@
       "or" 'org-archive-subtree
       "oa" 'org-agenda
       )
-    :ensure t
     :config
     (global-evil-leader-mode))
-  :ensure t
   :defer .1
   :config
   (progn
@@ -76,19 +77,16 @@
     (define-key evil-insert-state-map [escape] 'evil-normal-state)
     (evil-define-key 'normal haskell-mode-map "o" 'misc/haskell-mode-map))
   (use-package evil-surround
-    :ensure t
     :config
     (global-evil-surround-mode))
   (use-package evil-nerd-commenter
     :after evil
-    :ensure t
     :config
     (define-key evil-normal-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)
     (define-key evil-visual-state-map (kbd ",,") 'evilnc-comment-or-uncomment-lines)))
 
 ;; 启动界面
 (use-package dashboard
-  :ensure t
   :config
   (progn
     (dashboard-setup-startup-hook)
@@ -102,18 +100,15 @@
     (setq dashboard-items '((recents . 5)))))
 
 ;; dired
-(use-package dired-x
-  :config
-  (setq dired-recursive-deletes 'always)
-  (setq dired-recursive-copies 'always)
-  (put 'dired-find-alternate-file 'disabled nil)
-  ;; 延迟加载
-  (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
+(setq dired-recursive-deletes 'always)
+(setq dired-recursive-copies 'always)
+(put 'dired-find-alternate-file 'disabled nil)
+;; 延迟加载
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (use-package helm
   :after evil
-  :ensure t
   :init
   (setq helm-split-window-in-side-p           t
         helm-move-to-line-cycle-in-source     t
@@ -134,38 +129,30 @@
     (define-key helm-map (kbd "C-z")  'helm-select-action)
     (add-hook 'helm-minibuffer-set-up-hook
               'misc/helm-hide-minibuffer-maybe))
-  (use-package helm-ag
-    :ensure t)
+  (use-package helm-ag)
   (use-package helm-projectile
-    :ensure t
     :config
     (setq projectile-enable-caching t))
   (use-package helm-swoop
-    :ensure t
     :config
     (global-set-key (kbd "C-s") 'helm-swoop)))
 
 (use-package which-key
-  :ensure t
   :config
   :hook (after-init . which-key-mode))
 
 (use-package popwin
-  :ensure t
   :config
   :hook (after-init . popwin-mode))
 
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
 (use-package web-mode
-  :ensure t
   :mode ("\\.html?\\'" . web-mode)
   :mode ("\\.tpl.php?\\'" . web-mode)
   :mode ("\\.tpl?\\'" . web-mode))
 
 (use-package company
-  :ensure t
   :init
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
@@ -177,73 +164,59 @@
           company-echo-metadata-frontend)))
 
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (setq exec-path-from-shell-check-startup-files nil)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
 (use-package go-mode
-  :ensure t
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'godoc-mode-hook #'(lambda ()
                                  (evil-emacs-state))))
 
-(use-package ace-jump-mode
-  :ensure t)
+(use-package ace-jump-mode)
 
 (use-package yasnippet
-  :ensure t
   :config (yas-global-mode 1))
 
 (use-package hungry-delete
-  :ensure t
   :config
   (global-hungry-delete-mode))
 
-(use-package lua-mode
-  :ensure t)
+(use-package lua-mode)
 
-(use-package expand-region
-  :ensure t)
+(use-package expand-region)
 
-(use-package php-mode
-  :ensure t)
+(use-package php-mode)
 
-(use-package htmlize
-  :ensure t)
+(use-package htmlize)
 
 (use-package window-numbering
-  :ensure t
   :config
   (window-numbering-mode 1))
 
 (use-package magit
-  :ensure t
   :bind (("C-x g" . magit-status)))
 
-(use-package yaml-mode
-  :ensure t)
+(use-package yaml-mode)
 
-(use-package nginx-mode
-  :ensure t)
+(use-package nginx-mode)
 
-(use-package doom-modeline
-  :ensure t
-  :defer t
+(use-package spaceline
   :config
-  (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-  :hook (after-init . doom-modeline-init))
+  (require 'spaceline-config)
+  (spaceline-spacemacs-theme))
 
-(use-package haskell-mode
-  :ensure t)
+(use-package spaceline-all-the-icons
+  :after spaceline
+  :config (spaceline-all-the-icons-theme))
 
-(use-package iedit
-  :ensure t)
+(use-package haskell-mode)
+
+(use-package iedit)
 
 (use-package google-translate
-  :ensure t
   :config
   (defun google-translate--search-tkk ()
     "Search TKK. Fix search-failed \",tkk:'\""
@@ -261,7 +234,6 @@
 (if (display-graphic-p)
     (progn
       (use-package doom-themes
-        :ensure t
         :config
         (setq doom-themes-enable-bold t
               doom-themes-enable-italic t)
@@ -275,4 +247,4 @@
 
 (add-hook 'compilation-mode-hook 'misc/compilation-hook)
 
-(provide 'init-packages)
+(provide 'init-package)

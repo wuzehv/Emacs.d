@@ -202,4 +202,4 @@ same directory as the org-buffer and insert a link to this file."
   (interactive)
   (org-babel-remove-result-one-or-many t))
 
-(provide 'misc-funcs)
+(provide 'init-func)
