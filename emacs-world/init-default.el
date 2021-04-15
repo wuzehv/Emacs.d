@@ -59,4 +59,20 @@
 (setq scroll-margin 3
       scroll-conservatively 10000)
 
+;; dired
+(progn
+  (require 'dired-x)
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-alh --time-style long-iso")
+  (setq dired-recursive-copies 'always)
+  (setq dired-recursive-deletes 'always)
+  (put 'dired-find-alternate-file 'disabled nil)
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+(set-default 'tab-always-indent 'complete)
+
+(setq-default indent-tabs-mode nil)
+
+(setq-default tab-width 4)
+
 (provide 'init-default)

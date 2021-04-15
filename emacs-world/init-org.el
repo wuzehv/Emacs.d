@@ -75,8 +75,6 @@
   ;; https://github.com/be5invis/Sarasa-Gothic/releases
   ;; https://www.lanzous.com/ia5zbgh(我是安装的这个)
   (add-hook 'org-mode-hook (lambda ()
-                             (setq indent-tabs-mode t)
-                             (setq tab-width 4)
                              (setq truncate-lines nil)
                              (org-display-inline-images)
                              (org-bullets-mode t)

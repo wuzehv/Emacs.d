@@ -44,7 +44,7 @@
       "ps" 'helm-projectile-ag
 
       ;; lsp
-      "gd" 'lsp-find-definition
+      "gd" 'ac-php-find-symbol-at-point
       "gr" 'lsp-find-references
 
       ;; window
@@ -99,14 +99,6 @@
     (setq dashboard-footer "by wuzehui")
     (setq dashboard-items '((recents . 5)))))
 
-;; dired
-(setq dired-recursive-deletes 'always)
-(setq dired-recursive-copies 'always)
-(put 'dired-find-alternate-file 'disabled nil)
-;; 延迟加载
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
-
 (use-package helm
   :after evil
   :init
@@ -152,7 +144,10 @@
   :mode ("\\.tpl.php?\\'" . web-mode)
   :mode ("\\.tpl?\\'" . web-mode))
 
+(use-package ac-php)
+
 (use-package company
+  :after ac-php
   :init
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
@@ -161,7 +156,8 @@
   (setq company-frontends
         '(company-tng-frontend
           company-pseudo-tooltip-frontend
-          company-echo-metadata-frontend)))
+          company-echo-metadata-frontend))
+  (add-to-list 'company-backends 'company-ac-php-backend))
 
 (use-package exec-path-from-shell
   :config
@@ -170,7 +166,11 @@
     (exec-path-from-shell-initialize)))
 
 (use-package go-mode
-  :config
+  :init
+  (add-hook 'go-mode-hook #'(lambda()
+                              (progn
+                                (setq indent-tabs-mode t)
+                                (setq tab-width 4))))
   (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'godoc-mode-hook #'(lambda ()
                                  (evil-emacs-state))))
@@ -206,6 +206,8 @@
 (use-package spaceline
   :config
   (require 'spaceline-config)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (spaceline-toggle-minor-modes-off)
   (spaceline-spacemacs-theme))
 
 (use-package spaceline-all-the-icons
