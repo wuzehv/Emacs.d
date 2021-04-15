@@ -131,10 +131,7 @@
   :mode ("\\.tpl.php?\\'" . web-mode)
   :mode ("\\.tpl?\\'" . web-mode))
 
-(use-package ac-php)
-
 (use-package company
-  :after ac-php
   :init
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
@@ -143,14 +140,12 @@
   (setq company-frontends
         '(company-tng-frontend
           company-pseudo-tooltip-frontend
-          company-echo-metadata-frontend))
-  (add-to-list 'company-backends 'company-ac-php-backend))
+          company-echo-metadata-frontend)))
 
 (use-package exec-path-from-shell
   :config
-  (setq exec-path-from-shell-check-startup-files nil)
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-copy-env "PATH")))
 
 (use-package go-mode
   :init
