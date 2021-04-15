@@ -20,16 +20,16 @@
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
-      "r" 'helm-recentf
+      "r" 'counsel-recentf
       "d" 'dired-jump
       "v" 'er/expand-region
-      "i" 'helm-imenu
+      "i" 'counsel-imenu
       "j" 'ace-jump-char-mode
-      "SPC" 'helm-buffers-list
+      "SPC" 'ivy-switch-buffer
       "TAB" 'misc/switch-to-previous-buffer
 
       ;; file
-      "ff" 'helm-find-files
+      "ff" 'counsel-find-file
       "fy" 'misc/put-file-name-on-clipboard
       "fr" 'misc/rename-file-and-buffer
 
@@ -38,10 +38,10 @@
       "bk" 'kill-this-buffer
 
       ;; project
-      "pf" 'helm-projectile-find-file
-      "pp" 'helm-projectile-switch-project
+      "pf" 'counsel-projectile-find-file
+      "pp" 'counsel-projectile-switch-project
       "pi" 'projectile-invalidate-cache
-      "ps" 'helm-projectile-ag
+      "ps" 'counsel-projectile-ag
 
       ;; lsp
       "gd" 'ac-php-find-symbol-at-point
@@ -99,35 +99,22 @@
     (setq dashboard-footer "by wuzehui")
     (setq dashboard-items '((recents . 5)))))
 
-(use-package helm
-  :after evil
-  :init
-  (setq helm-split-window-in-side-p           t
-        helm-move-to-line-cycle-in-source     t
-        helm-ff-search-library-in-sexp        t
-        helm-scroll-amount                    8
-        helm-ff-file-name-history-use-recentf t
-        helm-autoresize-max-height 0
-        helm-autoresize-min-height 20
-        helm-ag-insert-at-point 'symbol)
-  (define-key evil-normal-state-map (kbd "RET") 'helm-recentf)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(use-package ivy
   :config
-  (progn
-    (define-key helm-map [escape] 'helm-keyboard-quit)
-    (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-z")  'helm-select-action)
-    (add-hook 'helm-minibuffer-set-up-hook
-              'misc/helm-hide-minibuffer-maybe))
-  (use-package helm-ag)
-  (use-package helm-projectile
-    :config
-    (setq projectile-enable-caching t))
-  (use-package helm-swoop
-    :config
-    (global-set-key (kbd "C-s") 'helm-swoop)))
+  (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-h f" . counsel-describe-function)
+         ("C-h v" . counsel-describe-variable)))
+
+(use-package counsel-projectile)
+
+(use-package swiper
+  :after evil
+  :config
+  (define-key evil-normal-state-map (kbd "/") 'swiper)
+  :bind (("C-s" . swiper)))
 
 (use-package which-key
   :config
