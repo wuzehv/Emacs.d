@@ -227,6 +227,10 @@
       )
   (load-theme 'leuven))
 
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'character))
+
 (add-hook 'prog-mode-hook 'hook/prog-mode-setting)
 
 (add-hook 'compilation-mode-hook 'misc/compilation-hook)

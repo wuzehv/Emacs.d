@@ -137,6 +137,7 @@ same directory as the org-buffer and insert a link to this file."
   (company-mode t)
   (projectile-mode t)
   (yas-global-mode t)
+  (highlight-indent-guides-mode t)
   (local-set-key (kbd "<f4>") 'misc/compile-and-run))
 
 (defun misc/replace-punctuation()
