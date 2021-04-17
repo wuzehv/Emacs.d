@@ -20,12 +20,12 @@
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
-      "r" 'counsel-recentf
+      "SPC" 'counsel-recentf
       "d" 'dired-jump
       "v" 'er/expand-region
       "i" 'counsel-imenu
       "j" 'ace-jump-char-mode
-      "SPC" 'ivy-switch-buffer
+      "l" 'ivy-switch-buffer
       "TAB" 'misc/switch-to-previous-buffer
 
       ;; file
@@ -42,10 +42,6 @@
       "pp" 'counsel-projectile-switch-project
       "pi" 'projectile-invalidate-cache
       "ps" 'counsel-projectile-ag
-
-      ;; lsp
-      "gd" 'ac-php-find-symbol-at-point
-      "gr" 'lsp-find-references
 
       ;; window
       "w/" 'split-window-right
@@ -201,6 +197,8 @@
 (use-package iedit)
 
 (use-package google-translate
+  :init
+  (use-package popup)
   :config
   (defun google-translate--search-tkk ()
     "Search TKK. Fix search-failed \",tkk:'\""

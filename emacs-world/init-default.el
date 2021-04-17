@@ -69,7 +69,7 @@
   (put 'dired-find-alternate-file 'disabled nil)
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-(set-default 'tab-always-indent 'complete)
+(setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
