@@ -11,15 +11,13 @@
 
 (use-package org-bullets
   :ensure t
-  :init
-  ;; 摩羯、白羊、射手、处女、巨蟹、双鱼、狮子
-  ;; (setq org-bullets-bullet-list '("♑" "♈" "♐" "♍" "♋" "♓" "♌"))
-  (setq org-ellipsis " ▼ "))
+  :init)
 
 (use-package ob-go
   :ensure t)
 
 (progn
+  (setq org-ellipsis " ▼")
   (setq org-src-tab-acts-natively t)
   (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
   (setq org-cycle-separator-lines 0)
@@ -80,7 +78,7 @@
                              (org-bullets-mode t)
                              (hungry-delete-mode t)
                              (electric-pair-local-mode -1)
-                             (local-set-key (kbd "C-c C-o") 'misc/org-open-at-point)
+                             (add-to-list 'org-link-frame-setup '(file . find-file))
                              (set-face-attribute 'org-table nil :font "Sarasa Mono SC 16"))))
 
 (org-babel-do-load-languages

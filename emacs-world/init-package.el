@@ -20,12 +20,12 @@
     (evil-leader/set-key
       ;; 常用
       "e" 'misc/open-init-file
-      "SPC" 'counsel-recentf
+      "SPC" 'ivy-switch-buffer
       "d" 'dired-jump
       "v" 'er/expand-region
       "i" 'counsel-imenu
       "j" 'ace-jump-char-mode
-      "l" 'ivy-switch-buffer
+      "r" 'counsel-recentf
       "TAB" 'misc/switch-to-previous-buffer
 
       ;; file
@@ -220,6 +220,7 @@
         (setq doom-themes-enable-bold t
               doom-themes-enable-italic t)
         (load-theme 'doom-one-light t)
+        ;; (load-theme 'doom-monokai-classic t)
         (doom-themes-visual-bell-config)
         (doom-themes-org-config))
       )
