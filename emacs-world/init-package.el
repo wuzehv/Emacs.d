@@ -190,6 +190,7 @@
 
 (use-package spaceline-all-the-icons
   :after spaceline
+  :init (setq spaceline-all-the-icons-separator-type 'none)
   :config (spaceline-all-the-icons-theme))
 
 (use-package haskell-mode)
