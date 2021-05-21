@@ -127,17 +127,6 @@
   :mode ("\\.tpl.php?\\'" . web-mode)
   :mode ("\\.tpl?\\'" . web-mode))
 
-(use-package company
-  :init
-  (setq company-idle-delay 0)
-  (setq company-show-numbers t)
-  :config
-  (company-tng-configure-default)
-  (setq company-frontends
-        '(company-tng-frontend
-          company-pseudo-tooltip-frontend
-          company-echo-metadata-frontend)))
-
 (use-package exec-path-from-shell
   :config
   (when (memq window-system '(mac ns x))
@@ -181,17 +170,11 @@
 
 (use-package nginx-mode)
 
-(use-package spaceline
-  :config
-  (require 'spaceline-config)
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  (spaceline-toggle-minor-modes-off)
-  (spaceline-spacemacs-theme))
-
-(use-package spaceline-all-the-icons
-  :after spaceline
-  :init (setq spaceline-all-the-icons-separator-type 'none)
-  :config (spaceline-all-the-icons-theme))
+(use-package doom-modeline
+  :ensure t
+  :config (progn
+            (setq doom-modeline-project-detection 'project))
+  :init (doom-modeline-mode t))
 
 (use-package haskell-mode)
 

@@ -134,7 +134,6 @@ same directory as the org-buffer and insert a link to this file."
   "program setting"
   (display-line-numbers-mode t)
   (hungry-delete-mode t)
-  (company-mode t)
   (projectile-mode t)
   (yas-global-mode t)
   (highlight-indent-guides-mode t)
