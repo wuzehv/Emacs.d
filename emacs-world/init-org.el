@@ -82,7 +82,6 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
-   (php . t)
    (go . t)
    (shell . t)))
 
