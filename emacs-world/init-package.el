@@ -163,18 +163,9 @@
   :config
   (window-numbering-mode 1))
 
-(use-package magit
-  :bind (("C-x g" . magit-status)))
-
 (use-package yaml-mode)
 
 (use-package nginx-mode)
-
-(use-package doom-modeline
-  :ensure t
-  :config (progn
-            (setq doom-modeline-project-detection 'project))
-  :init (doom-modeline-mode t))
 
 (use-package haskell-mode)
 

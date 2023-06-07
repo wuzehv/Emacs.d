@@ -7,8 +7,6 @@
 (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 (org-element-update-syntax)
 
-(require 'org-tempo) 
-
 (use-package org-bullets
   :ensure t
   :init)

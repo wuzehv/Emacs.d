@@ -20,5 +20,5 @@
 
 ### Usage
 ```bash
-git clone --recursive https://github.com/wuzehv/Emacs.d ~/.emacs.d
+git clone https://github.com/wuzehv/Emacs.d ~/.emacs.d
 ```

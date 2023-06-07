@@ -10,10 +10,6 @@
 
 (add-to-list 'load-path (expand-file-name "emacs-world" user-emacs-directory))
 
-;; 自动添加private下子模块目录
-(let ((default-directory (concat user-emacs-directory "private/")))
-    (normal-top-level-add-subdirs-to-load-path))
-
 (require 'init-func)
 
 (require 'init-package)
